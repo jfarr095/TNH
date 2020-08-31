@@ -1,0 +1,7 @@
+// #define __DEBUG__
+
+#include "Data/_Master Data Definer.event"
+
+#include "Tables/_Master Table Definer.event"
+
+#include "Macros/_Master Macro Definer.event"

@@ -1,0 +1,23 @@
+skill_171_unit:
+   BYTE $00 $00 0 
+skill_171_class:
+   BYTE $00 $00 0 
+skill_171_weapon:
+   BYTE $00 $00 0 
+skill_171_item:
+   BYTE $00 $00 0 
+#define SKL_HELP_171 $0000
+#define SKL_COLOR_171 $00
+ 
+#define COMBAT_ART_171_ATK 00 
+#define COMBAT_ART_171_HIT 00 
+#define COMBAT_ART_171_CRT 00 
+#define COMBAT_ART_171_AVO 00 
+#define COMBAT_ART_171_COST 05 
+#define COMBAT_ART_171_WEAPON $FF 
+#define COMBAT_ART_171_INFO 00 
+#define COMBAT_ART_171_DUMMY 00 
+ 
+COMPLEX_SKILL_171:
+   BYTE $00 $00 0 
+

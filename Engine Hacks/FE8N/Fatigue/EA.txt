@@ -1,0 +1,55 @@
+#include _config.txt
+
+ALIGN 4
+PUSH
+ORG 0x018ea4
+   jumpToHack(FatStatusUpHp)
+POP
+
+ALIGN 4
+FatStatusUpHp:
+#incbin "..\_N\StatusUp\StatusUpHP.dmp"
+POIN DefaultHp
+POIN StatusUpSkillHPFunc
+POIN Fatigue
+POIN 0	//末尾判定用(追加したかったら上に差し込む)
+
+PUSH
+ORG 0x0aefdc
+	jumpToHack(SaveWindow)
+
+ORG 0x08963c
+	jumpToHack(FatigueLayout)
+ORG 0x08ad18
+	jumpToHack(FatigueHelp)
+
+POP
+
+FatigueHelp:
+	#incbin FatigueHelp.dmp
+	WORD FATIGUE_HELP
+
+SaveWindow:
+	#incbin "..\_N\BreakedWeapon\repair_sys.dmp"
+	POIN BreakedWeapon_impl
+	POIN FatigueCounter
+	POIN 0
+ALIGN 4
+
+FatigueLayout:
+#incbin layout.dmp
+WORD FATIGUE_WORD
+
+Fatigue:
+#incbin half.dmp
+ALIGN 4
+
+FatigueCounter:
+#incbin counter.dmp
+	POIN UnitSetting_Fatigue
+	POIN ChapterSetting_Fatigue
+	POIN ChapterIgnoreSetting_Fatigue
+	WORD WORK_MEM_FOR_TRANSPORT_FATIGUE
+	
+ALIGN 4
+

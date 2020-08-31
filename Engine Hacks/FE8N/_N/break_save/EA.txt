@@ -1,0 +1,97 @@
+#include config.txt
+#include "nyaa\EA.txt"
+
+PUSH
+//HP上限
+//ORG 0x02be91
+//    BYTE $D8
+//幸運上限
+ORG 0x02bf5e 
+    BYTE STATUS_MAX
+ORG 0x02bf64
+    BYTE STATUS_MAX
+ORG 0x017f64
+    BYTE STATUS_MAX
+ORG 0x017f68
+    BYTE STATUS_MAX
+ORG 0x09e41c
+    BYTE STATUS_MAX
+ORG 0x09e5e4
+    BYTE STATUS_MAX
+ORG 0x089546
+    BYTE STATUS_MAX
+ORG 0x0949f4
+    BYTE STATUS_MAX
+//ゲージの上限
+ORG 0x0893da
+    BYTE STATUS_MAX
+ORG 0x0893ec
+    BYTE STATUS_MAX
+//闘技場の上限
+ORG 0x031d8c
+    BYTE (STATUS_MAX-1)
+ORG 0x031d9c
+    BYTE (STATUS_MAX-1)
+ORG 0x031dac
+    BYTE (STATUS_MAX-1)
+ORG 0x031dbc
+    BYTE (STATUS_MAX-1)
+ORG 0x031dcc
+    BYTE (STATUS_MAX-1)
+ORG 0x031ddc
+    BYTE (STATUS_MAX-1)
+    
+POP
+
+
+
+PUSH
+
+ORG 0xa9dfa
+#incbin "break_save_n.gba"
+
+ORG 0xaa142
+SHORT $46C0
+ORG 0xaa148
+SHORT $46C0
+
+
+ORG 0xaa200
+WORD	$46874800
+POIN break_load_n
+
+ORG 0xaa38e
+SHORT $46C0
+ORG 0xaa394
+SHORT $46C0
+
+POP
+
+
+break_load_n:
+#incbin "break_load_n.gba"
+ALIGN 4
+
+
+///////////////中断
+PUSH
+
+ORG 0xaa8a6
+   SHORT $46C0
+   jumpToHack(break_save_c)
+
+
+
+ORG 0xaaa90
+SHORT $46C0
+ORG 0xaaa96
+SHORT $46C0
+
+ORG 0xaab5e
+#incbin "break_load_c.dmp"
+
+POP
+break_save_c:
+   #incbin "break_save_c.dmp"
+ALIGN 4
+

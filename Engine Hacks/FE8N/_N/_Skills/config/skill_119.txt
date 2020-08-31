@@ -1,0 +1,23 @@
+skill_119_unit:
+   BYTE $00 $00 0 
+skill_119_class:
+   BYTE $00 $00 0 
+skill_119_weapon:
+   BYTE $00 $00 0 
+skill_119_item:
+   BYTE $00 $00 0 
+#define SKL_HELP_119 $057C
+#define SKL_COLOR_119 $FF
+ 
+#define COMBAT_ART_119_ATK 04 
+#define COMBAT_ART_119_HIT 15 
+#define COMBAT_ART_119_CRT 00 
+#define COMBAT_ART_119_AVO 00 
+#define COMBAT_ART_119_COST 03 
+#define COMBAT_ART_119_WEAPON $FF 
+#define COMBAT_ART_119_INFO 01 
+#define COMBAT_ART_119_DUMMY 00 
+ 
+COMPLEX_SKILL_119:
+   BYTE $00 $00 0 
+

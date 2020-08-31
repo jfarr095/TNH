@@ -1,0 +1,17 @@
+
+
+PUSH
+ORG 0x169a4
+BYTE $00 $48 $87 $46
+POIN Rentatsu_Pro
+POP
+
+Rentatsu_Pro:
+ #incbin "Rentatsu.gba"
+POIN hasRentatsu
+POIN hasNihil
+
+hasRentatsu:
+    HAS_SKILL
+    WORD NullifyID
+

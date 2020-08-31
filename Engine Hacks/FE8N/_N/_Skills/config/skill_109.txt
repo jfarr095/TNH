@@ -1,0 +1,23 @@
+skill_109_unit:
+   BYTE $00 $00 0 
+skill_109_class:
+   BYTE $00 $00 0 
+skill_109_weapon:
+   BYTE $3F $40 $41 $42 $43 $87 0
+skill_109_item:
+   BYTE $00 $00 0 
+#define SKL_HELP_109 $0561
+#define SKL_COLOR_109 $FF
+ 
+#define COMBAT_ART_109_ATK 00 
+#define COMBAT_ART_109_HIT 00 
+#define COMBAT_ART_109_CRT 00 
+#define COMBAT_ART_109_AVO 00 
+#define COMBAT_ART_109_COST 05 
+#define COMBAT_ART_109_WEAPON $FF 
+#define COMBAT_ART_109_INFO 00 
+#define COMBAT_ART_109_DUMMY 00 
+ 
+COMPLEX_SKILL_109:
+   BYTE $00 $00 0 
+

@@ -1,0 +1,13 @@
+////header
+    //#include _revert.txt
+    #include "Extensions\Hack Installation.txt"
+    #include "_N\EA.txt"
+//////////////////////////////////////////
+
+
+
+//#include "my_hack\EA.txt"
+#include "magic\MAGICforN.txt"
+//#include "Fatigue\EA.txt"
+
+#include "icon/Installer.event"

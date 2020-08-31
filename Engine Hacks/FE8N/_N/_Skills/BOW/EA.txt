@@ -1,0 +1,47 @@
+
+//////
+
+PUSH
+//上限と下限
+ORG	0x16938
+#incbin freerange_merge.gba
+
+POP
+//////////////myturn（射程表示）
+PUSH
+ORG	0x16e7c
+BYTE	$00 $4B $9F $46
+POIN	yumi_myturn
+POP
+yumi_myturn:
+#incbin select_player_func.gba
+ALIGN 4
+
+////////////////射程の上限と下限・汎用
+PUSH
+
+ORG	0x17420
+BYTE	$00 $4A $97 $46
+POIN	yumi_new1
+
+ORG	0x1743C
+BYTE	$00 $4A $97 $46
+POIN	yumi_new2
+
+POP
+yumi_new1:
+#incbin min_range.gba
+ALIGN 4
+yumi_new2:
+#incbin max_range.gba
+ALIGN 4
+
+///////////////////RangePenalty
+PUSH
+ORG	0x2abd4
+BYTE	$00 $4B $9F $46
+POIN	yumi_range
+POP
+yumi_range:
+#incbin "penalty.gba"
+ALIGN 4

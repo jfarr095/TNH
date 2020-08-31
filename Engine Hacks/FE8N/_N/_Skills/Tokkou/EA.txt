@@ -1,0 +1,50 @@
+#include config.txt
+
+/////////////////////
+PUSH
+
+ORG 0x02aa5e
+    SHORT $2500
+    SHORT $2801
+    SHORT $D104
+    SHORT $250A //10
+    SHORT $46C0
+    SHORT $46C0
+    SHORT $46C0
+    SHORT $46C0
+
+ORG 0x02aa7c
+    #incbin weapon.dmp
+
+  ORG 0x16A30
+    jumpToHack(effective_main)
+POP
+
+ALIGN 4
+
+effective_main:
+    #incbin main.gba
+    POIN effective_hasSkill1
+    POIN effective_hasSkill2
+    POIN effective_hasSkill3
+    POIN effective_hasSkill4
+    POIN effective_against1
+    POIN effective_against2
+    POIN effective_against3
+    POIN effective_against4
+    POIN hasNihil
+    POIN hasRentatsu
+    
+effective_hasSkill1:
+    HAS_SKILL
+    WORD Effective1ID
+effective_hasSkill2:
+    HAS_SKILL
+    WORD Effective2ID
+effective_hasSkill3:
+    HAS_SKILL
+    WORD Effective3ID
+effective_hasSkill4:
+    HAS_SKILL
+    WORD Effective4ID
+    

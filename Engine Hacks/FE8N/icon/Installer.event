@@ -1,0 +1,12 @@
+ALIGN 4
+Icon_Item:
+    #incbin Item_Icon.gba
+    #incbin Skill_Icon.gba
+
+PUSH
+
+ORG 0x3600
+    POIN Icon_Item
+ORG	0x36D4
+    POIN Icon_Item
+POP

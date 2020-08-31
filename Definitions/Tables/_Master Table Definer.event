@@ -1,0 +1,41 @@
+#define CharacterTable 0x8582BC
+
+#define PortraitTable 0x90111C
+#define MugTable PortraitTable
+
+#undef ClassTable
+#define ClassTable 0x85B668
+
+#define MapSpriteTable 0x903E0C
+
+#define MiscMapSpriteTable 0xA13488
+#define MovingMapSpriteTable MiscMapSpriteTable
+
+#define AnimationTable 0xC00008
+
+#define ItemTable 0x85E068
+
+#define ItemIconTable 0x5BA470
+#define ItemIconSheet ItemIconTable
+
+#define TextTable 0x14D08C
+
+#define ChapterDataTable 0x904E1C
+
+#undef EventPointerListOffset
+#define EventPointerList 0x907BC8
+#define EventPointerListOffset EventPointerList
+
+#define SongTable 0x214120
+
+#define BattleQuoteTable 0xA5E7E0
+
+#define DeathQuoteTable 0xA5EE70
+
+#define PaletteTable 0xEF8008
+
+#define PaletteCharacterTable 0x9CEC18
+
+#define PaletteClassTable 0x9CDE18
+
+#include "FE8J Pointers.event"

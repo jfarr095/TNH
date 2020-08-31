@@ -1,0 +1,9 @@
+#include "Character Definitions.event"
+
+#include "Class Definitions.event"
+
+#include "Mug Definitions.event"
+
+#include "PList Definitions.event"
+
+#include "Tileset Definitions.event"

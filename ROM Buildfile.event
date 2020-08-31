@@ -1,0 +1,31 @@
+#ifdef _FE8_
+
+    #include "EAstdlib.event"
+    #include "Definitions/_Master Definition Installer.event"
+
+    ORG 0xEFB2E0 // Free Space
+
+    TextSpace:
+    #include "Text/Install Text Data.event"
+    MESSAGE Used text space is TextSpace - currentOffset
+
+    GraphicsSpace:
+    #include "Graphics/_Master Graphics Installer.event"
+    MESSAGE Used graphics space is GraphicsSpace - currentOffset
+
+    MapSpace:
+    #include "Maps/Master Map Installer.event"
+    MESSAGE Used map space is MapSpace - currentOffset
+
+    HackSpace:
+    #include "Engine Hacks/_Master Hack Installer.event"
+    MESSAGE Used hack space is HackSpace - currentOffset
+
+    EventSpace:
+    #include "Events/_Master Event Installer.event"
+    MESSAGE Used event space is EventSpace - currentOffset
+    
+    MESSAGE Used free space ends at currentOffset
+#else
+    ERROR You are not assembling FE8 events!
+#endif

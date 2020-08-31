@@ -1,0 +1,3 @@
+
+// Event Assembler/EA Standard Library/Chapter Structure Helpers.txt
+#define EventPointerTable(id,offset) "PUSH; ORG EventPointerListOffset+(4*id); POIN offset; POP"

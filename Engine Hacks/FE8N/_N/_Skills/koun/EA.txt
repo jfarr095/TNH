@@ -1,0 +1,16 @@
+
+PUSH
+ORG 0x2ac60
+WORD	$46874800
+POIN sli_koun
+POP
+
+ALIGN 4
+sli_koun:
+#incbin koun.dmp
+    POIN hasFortune
+    
+hasFortune:
+    HAS_NIHIL
+    WORD FortuneID
+ALIGN 4

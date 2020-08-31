@@ -1,0 +1,5 @@
+// Player
+#define Isaac 0x1
+
+// Enemy
+#define PrologueBandit 0x65

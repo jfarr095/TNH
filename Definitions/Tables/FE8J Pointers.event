@@ -1,0 +1,357 @@
+PUSH
+
+// Character Table
+ORG $10268
+POIN CharacterTable
+ORG $10650
+POIN CharacterTable
+ORG $1069c
+POIN CharacterTable
+ORG $a3b64
+POIN CharacterTable
+ORG $a3ce0
+POIN CharacterTable
+ORG $a4928
+POIN CharacterTable
+ORG $a49a0
+POIN CharacterTable
+ORG $a4c3c
+POIN CharacterTable
+ORG $a5458
+POIN CharacterTable
+ORG $a56a8
+POIN CharacterTable
+ORG $a5860
+POIN CharacterTable
+ORG $a595c
+POIN CharacterTable
+ORG $a5bb0
+POIN CharacterTable
+ORG $a5d28
+POIN CharacterTable
+ORG $a61f8
+POIN CharacterTable
+ORG $a6874
+POIN CharacterTable
+ORG $a8074
+POIN CharacterTable
+ORG $a8164
+POIN CharacterTable
+ORG $af218
+POIN CharacterTable
+ORG $bb9d0
+POIN CharacterTable
+ORG $bbc8c
+POIN CharacterTable
+ORG $c20f4
+POIN CharacterTable
+ORG $c3740
+POIN CharacterTable
+
+// Portrait Table
+ORG $542c
+POIN PortraitTable
+
+// Class Table
+ORG $17860
+POIN ClassTable
+ORG $17adc
+POIN ClassTable
+ORG $18ac0
+POIN ClassTable
+ORG $19130
+POIN ClassTable
+
+// Map Sprite Table
+ORG $266d4
+POIN MapSpriteTable
+ORG $26754
+POIN MapSpriteTable
+ORG $267dc
+POIN MapSpriteTable
+ORG $26c2c
+POIN MapSpriteTable
+ORG $27274
+POIN MapSpriteTable
+ORG $27b44
+POIN MapSpriteTable
+ORG $27c30
+POIN MapSpriteTable
+ORG $27cdc
+POIN MapSpriteTable
+ORG $27da0
+POIN MapSpriteTable
+ORG $27e30
+POIN MapSpriteTable
+ORG $27f08
+POIN MapSpriteTable
+ORG $27ff8
+POIN MapSpriteTable
+
+// Misc Map Sprite Table
+ORG $7b998
+POIN MiscMapSpriteTable
+ORG $7b9ac
+POIN MiscMapSpriteTable
+ORG $bfa7c
+POIN MiscMapSpriteTable
+ORG $bfa90
+POIN MiscMapSpriteTable
+
+// Animation Table
+ORG $5a97c
+POIN AnimationTable
+ORG $5b3a4
+POIN AnimationTable
+ORG $5b438
+POIN AnimationTable
+ORG $5b5d0
+POIN AnimationTable
+ORG $71c58
+POIN AnimationTable
+ORG $72ee8
+POIN AnimationTable
+ORG $73008
+POIN AnimationTable
+
+// Item Table
+ORG $161b8
+POIN ItemTable
+ORG $161e8
+POIN ItemTable
+ORG $16218
+POIN ItemTable
+ORG $16248
+POIN ItemTable
+ORG $16278
+POIN ItemTable
+ORG $162a8
+POIN ItemTable
+ORG $162d8
+POIN ItemTable
+ORG $16318
+POIN ItemTable
+ORG $16478
+POIN ItemTable
+ORG $164c4
+POIN ItemTable
+ORG $16534
+POIN ItemTable
+ORG $16588
+POIN ItemTable
+ORG $165e4
+POIN ItemTable
+ORG $1666c
+POIN ItemTable
+ORG $16734
+POIN ItemTable
+ORG $167b8
+POIN ItemTable
+ORG $16878
+POIN ItemTable
+ORG $168c0
+POIN ItemTable
+ORG $1695c
+POIN ItemTable
+ORG $169bc
+POIN ItemTable
+ORG $16a24
+POIN ItemTable
+ORG $16aac
+POIN ItemTable
+ORG $16b7c
+POIN ItemTable
+ORG $16cb4
+POIN ItemTable
+ORG $16d4c
+POIN ItemTable
+ORG $16dd0
+POIN ItemTable
+ORG $16e24
+POIN ItemTable
+ORG $16e70
+POIN ItemTable
+ORG $16ea0
+POIN ItemTable
+ORG $17024
+POIN ItemTable
+ORG $17080
+POIN ItemTable
+ORG $17104
+POIN ItemTable
+ORG $17154
+POIN ItemTable
+ORG $171c8
+POIN ItemTable
+ORG $1724c
+POIN ItemTable
+ORG $1728c
+POIN ItemTable
+ORG $172bc
+POIN ItemTable
+ORG $172d4
+POIN ItemTable
+ORG $172ec
+POIN ItemTable
+ORG $17308
+POIN ItemTable
+ORG $17328
+POIN ItemTable
+ORG $1734c
+POIN ItemTable
+ORG $17378
+POIN ItemTable
+ORG $17398
+POIN ItemTable
+ORG $173b0
+POIN ItemTable
+ORG $173c8
+POIN ItemTable
+ORG $173e0
+POIN ItemTable
+ORG $17404
+POIN ItemTable
+ORG $17428
+POIN ItemTable
+ORG $17444
+POIN ItemTable
+ORG $1745c
+POIN ItemTable
+ORG $17474
+POIN ItemTable
+ORG $1748c
+POIN ItemTable
+ORG $174a4
+POIN ItemTable
+ORG $174c0
+POIN ItemTable
+ORG $174e0
+POIN ItemTable
+ORG $174f8
+POIN ItemTable
+ORG $17510
+POIN ItemTable
+ORG $1753c
+POIN ItemTable
+ORG $17554
+POIN ItemTable
+ORG $17568
+POIN ItemTable
+
+// Item Icon Table
+ORG $3600
+POIN ItemIconTable
+ORG $36d4
+POIN ItemIconTable
+
+// Text Table
+ORG $9fd0
+POIN TextTable
+ORG $a000
+POIN TextTable
+
+// Chapter Data Table
+ORG $34534
+POIN ChapterDataTable
+ORG $ba9ec
+POIN ChapterDataTable
+ORG $bab1c
+POIN ChapterDataTable
+ORG $bad44
+POIN ChapterDataTable
+ORG $baeac
+POIN ChapterDataTable
+ORG $bb084
+POIN ChapterDataTable
+
+// Event Pointer List
+ORG $195d8
+POIN EventPointerList
+ORG $19640
+POIN EventPointerList
+ORG $19674
+POIN EventPointerList
+ORG $30084
+POIN EventPointerList
+ORG $30bc8
+POIN EventPointerList
+ORG $34588
+POIN EventPointerList
+ORG $345b4
+POIN EventPointerList
+ORG $345e4
+POIN EventPointerList
+
+// Song Table
+ORG $280c
+POIN SongTable
+ORG $14ba8
+POIN SongTable
+ORG $45880
+POIN SongTable
+ORG $74004
+POIN SongTable
+ORG $74048
+POIN SongTable
+ORG $ba2e0
+POIN SongTable
+ORG $d4f1c
+POIN SongTable
+ORG $d4f50
+POIN SongTable
+ORG $d4f9c
+POIN SongTable
+ORG $d4ff0
+POIN SongTable
+ORG $d5024
+POIN SongTable
+
+// Battle Quote Table
+ORG $86978
+POIN BattleQuoteTable
+
+// Death Quote Table
+ORG $869f8
+POIN DeathQuoteTable
+
+// Palette Table
+ORG $5a9a0
+POIN PaletteTable
+ORG $5aa74
+POIN PaletteTable
+ORG $5aac8
+POIN PaletteTable
+ORG $5b550
+POIN PaletteTable
+ORG $5b6cc
+POIN PaletteTable
+
+// Palette Character Table
+ORG $582f4
+POIN PaletteCharacterTable
+ORG $5830c
+POIN PaletteCharacterTable
+ORG $5a9e4
+POIN PaletteCharacterTable
+ORG $5aa70
+POIN PaletteCharacterTable
+ORG $5aac4
+POIN PaletteCharacterTable
+ORG $d1e94
+POIN PaletteCharacterTable
+
+// Palette Class Table
+ORG $58500
+POIN PaletteClassTable
+ORG $5a9e0
+POIN PaletteClassTable
+ORG $5aa68
+POIN PaletteClassTable
+ORG $5aabc
+POIN PaletteClassTable
+ORG $d1e08
+POIN PaletteClassTable
+ORG $d1e90
+POIN PaletteClassTable
+
+POP

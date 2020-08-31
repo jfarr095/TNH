@@ -1,0 +1,71 @@
+//header
+#define SKILL_PATCH
+  #include skill_definitions.event
+  #include config\config_index.event
+  #include config\list_definitions.event
+  #include "skl_anime_table.event"  //スキルアニメーションテーブル
+  #include "_anime\EA.txt"          //スキルアニメーションプログラム
+  #include "_help\EA.txt"
+  #include "_common\EA.txt"
+  #include index.event
+PUSH
+
+#ifndef MAGIC_PATCH //魔力パッチなし
+
+    ORG 0xA741A8
+    #incext Png2Dmp "_common\Equipment7.png" --lz77
+ORG 0x089348
+    WORD $020040ee //アイコン開始位置
+    WORD 4 //アイコンの間隔(4 -> 8, 6 -> 6)
+    WORD $02003DAC //Ability文字位置1
+    
+#endif
+
+ORG	0x89268
+BYTE	$00 $4B $9F $46
+POIN Skills_Icon
+
+//スキルインデックス
+ORG 0x892FC
+ #incbin "Savior\GotoRescue.dmp"
+ POIN IsRescure
+ORG 0x89308
+ jumpToHack(MiddleDef)
+ORG 0x89310
+ jumpToHack(sol_divide_anim_on)
+ORG 0x89318
+jumpToHack(prediction_follow_up_2)
+
+
+
+//～0x089348
+POP
+
+Skills_Icon:
+#incbin "_common\iconEX.dmp"
+POIN	SIcon_U SIcon_C SIcon_W SIcon_A skl_table
+WORD $08089350 //Ability文字位置2
+WORD $08089348 //ICONPOSITION
+WORD $0808934C //ICON_GAP
+POIN skl_anime_table
+POIN getSkill
+POIN WP_LV_SKL_TABLE
+WORD ICON_LIST_SIZE
+POIN checkItemList
+#ifdef LUNATIC_SKILL
+WORD 1
+#else
+WORD 0
+#endif
+POIN LUNATIC_TABLE
+SIcon_U:
+    #incbin "_common\UNIT.bin"
+SIcon_C:
+    #incbin "_common\CLASS.bin"
+SIcon_W:
+    #incbin "_common\WEAPON.bin"
+SIcon_A:
+    #incbin "_common\ABILITY.bin"
+    
+ALIGN 4
+    

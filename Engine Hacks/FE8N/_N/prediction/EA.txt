@@ -1,0 +1,93 @@
+#include _config.txt
+PUSH
+
+ORG 0x036de2	//revert
+   SHORT 0xD002
+ORG 0x03741a	//revert
+   SHORT 0xD005
+
+ORG 0xa7315e	//戦闘予測HPのhelp
+   SHORT NOW_HP_HELP_ID
+
+ORG 0xa7317a	//戦闘予測HPのhelp
+   SHORT RESULT_HP_HELP_ID
+ORG 0xa73196	//help
+   SHORT 0x0506
+
+ORG 0x0371ac	//詳細でも矢印
+   SHORT 0x46C0
+   
+ORG 0x036ffa	//矢印の縦位置
+    BL(0x08e7a4)
+ORG 0x0370a0	//x2の縦位置
+    BL(0x08e7ac)
+ORG 0x0370c2	//x2の縦位置
+    BL(0x08e7ac)
+    
+ORG 0x036c36
+    SHORT 0x3013 0x2100 0x5642
+    
+ORG 0x036c46
+    SHORT 0x2000
+    jumpToHack(calc_prediction_1)
+ORG 0x036ce2
+    SHORT 0x2001
+    jumpToHack(calc_prediction_2)
+    
+ORG 0x036cd4
+    SHORT 0x3013 0x2100 0x5642
+    
+ORG 0x036d32	//文字位置
+    BYTE 0x08
+ORG 0x036d42	//文字位置
+    BYTE 0x8A
+    
+ORG 0x0dccf0
+    SHORT $0479
+
+ORG 0x036d4c	//防御→威力
+    SHORT 0x3818
+   
+POP
+
+calc_prediction_1:
+#incbin calc_prediction.dmp
+POIN DefDivide
+WORD $08036c52
+
+calc_prediction_2:
+#incbin calc_prediction.dmp
+POIN DefDivide
+WORD $08036cf0
+
+
+arrow_double:
+#incbin arrow_double.dmp
+ALIGN 4
+double_double:
+#incbin double_double.dmp
+ALIGN 4
+
+
+///////////////////////////////////////差し違え・切り返し予測対応
+PUSH
+
+ORG 0x036808
+SHORT 0x1c38     //mov r0, r7
+BL(0x89318)
+
+ORG 0x0368a8
+SHORT 0x1c30     //mov r0, r6
+BL(0x89318)
+
+//ORG 0x89318
+//jumpToHack(prediction_follow_up_2)
+
+POP
+
+prediction_follow_up_2:
+#incbin follow_up_2.dmp
+ALIGN 4
+
+
+

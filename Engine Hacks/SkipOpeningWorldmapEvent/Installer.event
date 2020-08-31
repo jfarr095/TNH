@@ -1,0 +1,6 @@
+PUSH
+ORG 0xABCDEC
+#incbin "SkipOpeningWorldmapEvent.bin"
+ORG 0xC96E0
+BYTE 0 0
+POP

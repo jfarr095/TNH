@@ -1,0 +1,190 @@
+
+//奥義の鼓動の状態異常指定は3ファイル。(別フォルダの確率関連にもある)
+//
+
+
+////Revert
+PUSH
+
+ORG 0x01cefc
+SHORT $2000 $E02E
+WORD $03004df0
+
+ORG 0x1cef0
+SHORT $DD04
+
+POP
+
+
+
+////main
+
+PUSH
+ORG 0x018540	//revert(ターン終了時じゃ遅いので)
+SHORT $6808
+SHORT $2800
+SHORT $d002
+SHORT $68c8
+POP
+
+
+////撃破系
+//0xFF 撃破一回目
+//0xFE 撃破処理済
+//0x7F 撃破二回目以降
+//0x7E 二回目以降処理済み
+PUSH
+ORG 0x02b808
+jumpToHack(defeatEnemy)
+POP
+
+defeatEnemy:
+#incbin defeatEnemy.dmp
+ALIGN 4
+
+PUSH
+ORG 0x01858c
+	jumpToHack(setStartingTurn)
+	
+	
+ORG	0x1860A //自然回復なし
+	BYTE $09 $2A $02 $D0 $18 $1C $10 $38
+	
+POP
+setStartingTurn:
+	#incbin setStartingTurn.dmp
+	POIN hasQuickenedPulse
+
+
+////未整理
+PUSH
+ORG 0x0185f4
+jumpToHack(pulse_impl)
+ 
+//病気のフキダシ表示
+ORG 0x08e6d8
+WORD $0808e748	//revert
+
+//病気のヘルプ
+ORG 0x08ad04
+//WORD $0808ad8a
+WORD $0808ad18
+
+//病気のステータス画面文字
+ORG 0x05c2a3c
+//WORD $04a7
+WORD $0477
+
+//病気の文字
+ORG 0x08e694
+ #incbin pulse_word.gba
+ORG 0x08e6d8
+WORD $08411c80	//	真っ白を描写する為の適当な空き領域
+//WORD $0808e748	//revert用
+
+ORG 0x01cea8
+    jumpToHack(odorero)
+
+ORG 0x018460
+    jumpToHack(AfterMove_Skill)
+
+ORG 0x1CED4
+    BYTE $00 $48 $87 $46
+    POIN canto_impl
+    
+ORG 0x01cefa
+    SHORT $d107	//revert
+    jumpToHack(remove_impl)
+POP
+
+
+#ifndef Debug_Mode
+
+remove_impl:
+#incbin remove.dmp
+POIN hasRemove
+
+#else
+
+remove_impl:
+#incbin debug.gba
+POIN hasRemove
+
+#endif
+
+canto_impl:
+#incbin jinrai_fix_ijou.gba
+    POIN hasCantoPlus
+
+pulse_impl:
+#incbin pulse.dmp
+
+ALIGN 4
+    odorero:
+        #incbin "main.dmp"
+        POIN HAS_HURRY
+        POIN hasGaleforce
+        POIN hasLifetaker
+        POIN hasCantoPlus
+        POIN hasGaleCause
+        POIN WAIT_SKILLS
+        WORD RagingStormID
+        
+    AfterMove_Skill:
+        #incbin "AfterMove.dmp"
+        POIN WAIT_SKILLS
+        
+    WAIT_SKILLS:
+        #incbin WaitSkills.dmp
+        POIN HAS_ALERT_STANCE
+        POIN HAS_DEFENSIVE_STANCE
+        POIN HAS_CATNAP
+
+    hasRagingStorm:
+        HAS_COMBAT
+        WORD RagingStormID
+    hasRemove:
+        HAS_SKILL
+        WORD RemoveID
+    hasGaleforce:
+        HAS_SKILL
+        WORD GaleforceID
+    hasLifetaker:
+        HAS_SKILL
+        WORD LifetakerID
+    hasGaleCause:
+        HAS_SKILL
+        WORD GaleCauseID
+    hasCantoPlus:
+        HAS_SKILL
+        WORD CantoPlusID
+    HAS_HURRY:
+        HAS_SKILL
+        WORD HurryID
+    HAS_ALERT_STANCE:
+        HAS_SKILL
+        WORD AlertStanceID
+    HAS_DEFENSIVE_STANCE:
+        HAS_SKILL
+        WORD DefensiveStanceID
+    HAS_CATNAP:
+        HAS_SKILL
+        WORD CatnapID
+
+PUSH
+ORG 0x01a09c
+jumpToHack(double_slow)
+POP
+double_slow:
+#incbin slow.dmp
+ALIGN 4
+
+PUSH
+ORG 0x01cf1c
+jumpToHack(SetCantoFlag)
+POP
+
+SetCantoFlag:
+#incbin SetCantoFlag.dmp
+ALIGN 4
+

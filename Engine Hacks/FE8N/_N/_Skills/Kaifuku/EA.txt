@@ -1,0 +1,78 @@
+
+PUSH
+ORG	0x19f28
+BYTE	$00 $4B $9F $46
+POIN	ski_kaifuku
+
+ORG 0x018e64
+    jumpToHack(GetNowHpCustomized)
+
+ORG 0x019f38
+    jumpToHack(tiyu_main)
+
+ORG 0x025904
+    jumpToHack(BreathofLife)
+
+ORG 0x02594c
+    jumpToHack(Boon)
+
+POP
+
+ALIGN 4
+GetNowHpCustomized:
+#incbin "GetNowHpCustomized.dmp"
+
+ALIGN 4
+ski_kaifuku:
+#incbin "KAIFUKU.dmp"
+POIN hasRenewal
+POIN hasDivineDragonHorn
+POIN hasBreathofLife
+POIN hasRecover
+
+BreathofLife:
+#incbin BreathofLife.dmp
+POIN hasBreathofLife
+
+Boon:
+#incbin Boon.dmp
+POIN hasBoon
+
+ImmuneStatus:
+ #incbin ImmuneStatus.dmp
+ POIN hasImmuneStatus
+
+hasImmuneStatus:
+ HAS_NIHIL
+ WORD ImmuneStatusID
+
+hasBoon:
+   HAS_NIHIL
+   WORD BoonID
+
+tiyu_main:
+  #incbin tiyu.dmp
+  POIN hasImbue
+  POIN hasBoon
+
+
+hasBreathofLife:
+   HAS_NIHIL
+   WORD BreathofLifeID
+
+hasDivineDragonHorn:
+    HAS_NIHIL
+    WORD DivineDragonHornID
+    
+hasRenewal:
+    HAS_NIHIL
+    WORD RenewalID
+hasRecover:
+    HAS_NIHIL
+    WORD RecoverID
+    
+hasImbue:
+    HAS_SKILL
+    WORD ImbueID
+    
+    

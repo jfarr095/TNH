@@ -1,0 +1,23 @@
+skill_100_unit:
+   BYTE $00 $00 0 
+skill_100_class:
+   BYTE $00 $00 0 
+skill_100_weapon:
+   BYTE $00 $00 0 
+skill_100_item:
+   BYTE $00 $00 0 
+#define SKL_HELP_100 $0000
+#define SKL_COLOR_100 0
+ 
+#define COMBAT_ART_100_ATK 00 
+#define COMBAT_ART_100_HIT 00 
+#define COMBAT_ART_100_CRT 00 
+#define COMBAT_ART_100_AVO 00 
+#define COMBAT_ART_100_COST 05 
+#define COMBAT_ART_100_WEAPON $FF 
+#define COMBAT_ART_100_INFO 00 
+#define COMBAT_ART_100_DUMMY 00 
+ 
+COMPLEX_SKILL_100:
+   BYTE $00 $00 0 
+

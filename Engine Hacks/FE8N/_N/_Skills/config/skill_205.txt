@@ -1,0 +1,23 @@
+skill_205_unit:
+   BYTE $00 $00 0 
+skill_205_class:
+   BYTE $00 $00 0 
+skill_205_weapon:
+   BYTE $00 $00 0 
+skill_205_item:
+   BYTE $00 $00 0 
+#define SKL_HELP_205 $0000
+#define SKL_COLOR_205 $00
+ 
+#define COMBAT_ART_205_ATK 00 
+#define COMBAT_ART_205_HIT 00 
+#define COMBAT_ART_205_CRT 00 
+#define COMBAT_ART_205_AVO 00 
+#define COMBAT_ART_205_COST 05 
+#define COMBAT_ART_205_WEAPON $FF 
+#define COMBAT_ART_205_INFO 00 
+#define COMBAT_ART_205_DUMMY 00 
+ 
+COMPLEX_SKILL_205:
+   BYTE $00 $00 0 
+

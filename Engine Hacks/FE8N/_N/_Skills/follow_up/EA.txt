@@ -1,0 +1,74 @@
+
+//revert
+PUSH
+ORG 0x02af60
+  SHORT $6820 $304a $8800 $f7ec
+POP
+
+///////////////////////////////
+PUSH
+    ORG 0x02ae88
+    BYTE 0x00 0x48 0x87 0x46
+    POIN breaker_semetate
+    ORG 0x02af18
+    jumpToHack(breaker_main)
+POP
+
+ALIGN 4
+
+breaker_main:
+    #incbin main.dmp
+    POIN breaker_hasSkill1
+    POIN breaker_hasSkill2
+    POIN breaker_hasSkill3
+    POIN breaker_hasSkill4
+    POIN breaker_hasSkill5
+    POIN hasNihil
+    POIN 0
+    POIN boldFighter_hasSkill
+    POIN vengefulFighter_hasSkill
+    POIN hasDartingBlow
+    POIN HasWaryFighterOrg
+    
+breaker_semetate:
+    #incbin battle.dmp
+    POIN hasDesperation
+    
+breaker_hasSkill1:
+    HAS_SKILL
+    WORD SwordbreakerID
+    
+breaker_hasSkill2:
+    HAS_SKILL
+    WORD LancebreakerID
+    
+breaker_hasSkill3:
+    HAS_SKILL
+    WORD AxebreakerID
+    
+breaker_hasSkill4:
+    HAS_SKILL
+    WORD BowbreakerID
+    
+breaker_hasSkill5:
+    HAS_SKILL
+    WORD TomebreakerID
+    
+HAS_IMPREGNABLE_WALL:
+    HAS_NIHIL
+    WORD ImpregnableWallID
+HasWaryFighterOrg:
+    HAS_NIHIL
+    WORD WaryFighterID
+    
+boldFighter_hasSkill:
+    HAS_NIHIL
+    WORD BoldFighterID
+    
+vengefulFighter_hasSkill:
+    HAS_NIHIL
+    WORD VengefulFighterID
+    
+hasDesperation:
+    HAS_NIHIL
+    WORD DesperationID

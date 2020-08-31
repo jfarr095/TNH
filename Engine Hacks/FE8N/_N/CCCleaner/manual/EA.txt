@@ -1,0 +1,53 @@
+#include config.txt
+
+PUSH
+
+ORG 0x28b94 //メティスの使用可否
+    SHORT $1c29     //	mov	r1, r5
+    SHORT $1c20     //	mov	r0, r4
+    BL(0x2f748)
+
+ORG 0x2a070 //メティス進撃準備使用可否
+    SHORT $1c28     //	mov	r0, r5
+    SHORT $1c21     //	mov	r1, r4
+    BL(0x2f748)
+
+
+//メティス・ドーピングの効果分岐
+ORG 0x2f740
+WORD $468F4900 //r1
+POIN s_scroll
+ORG 0x2f748 //スペース利用
+WORD $46974A00
+POIN scroll_check
+
+/////////
+POP
+scroll_check:
+ #incbin "check.dmp"
+ WORD MAX_MANUAL_SKILL_NUM
+ POIN getSkill
+ POIN containsSkill
+ POIN dedupSkill
+ POIN judgeUnit
+ POIN commonSkill
+ALIGN 4
+s_scroll:
+ #incbin "store.dmp"
+ WORD TEXT_ID_AFTER_USING_MANUAL
+ WORD TEXT_ID_AFTER_USING_ERASER
+ WORD MAX_MANUAL_SKILL_NUM
+ POIN getSkill
+ POIN dedupSkill
+ POIN pushSkill
+ POIN popSkill
+ POIN removeSkill
+ 
+ALIGN 4
+
+dedupSkill:
+ #incbin "dedupSkill.gba"
+POIN getSkill
+POIN judgeUnit
+
+

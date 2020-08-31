@@ -1,0 +1,85 @@
+
+
+//////////月光発生条件
+PUSH
+ORG	0x2B21C
+BYTE	$00 $4B $9F $46
+POIN	geckojump
+POP
+
+ALIGN 4
+geckojump:
+#incbin "Gecko.dmp"
+POIN hasGecko
+POIN set_skillanime_attack
+POIN hasNihil
+
+hasGecko:
+    HAS_OCCULT
+    WORD LunaID
+
+//////////貫通系奥義分岐
+
+
+
+
+PUSH
+ORG	0x2B3D8
+WORD	$46874800 //r0
+POIN	origin_third
+POP
+
+ALIGN 4
+origin_third:
+#incbin "Third.dmp"
+POIN	hasDragonFung
+POIN	hasColossus
+POIN	hasVengeance
+POIN	hasStun
+POIN	hasScream
+POIN	hasIgnis
+POIN hasNihil
+POIN set_skillanime_attack
+POIN hasMagicBind
+POIN hasFallenStar
+POIN fodes_func
+POIN HAS_PIERCE
+POIN HAS_STUN_MASTERY
+POIN HAS_SCREAM_MASTERY
+    
+hasFallenStar:
+  HAS_COMBAT
+  WORD FallenStarID
+hasDragonFung:
+    HAS_OCCULT
+    WORD DragonFungID
+hasColossus:
+    HAS_OCCULT
+    WORD ColossusID
+hasVengeance:
+    HAS_OCCULT
+    WORD VengeanceID
+hasStun:
+    HAS_COMBAT
+    WORD StunID
+hasScream:
+    HAS_COMBAT
+    WORD ScreamID
+hasIgnis:
+    HAS_OCCULT
+    WORD IgnisID
+hasMagicBind:
+    HAS_COMBAT
+    WORD MagicBindID
+
+HAS_PIERCE:
+    HAS_OCCULT
+    WORD PierceID
+
+HAS_STUN_MASTERY:
+    HAS_OCCULT
+    WORD StunMasteryID
+HAS_SCREAM_MASTERY:
+    HAS_OCCULT
+    WORD ScreamMasteryID
+

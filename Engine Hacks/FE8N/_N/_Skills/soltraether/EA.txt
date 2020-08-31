@@ -1,0 +1,148 @@
+
+
+#define SOL_WORK_ADDRESS $0203ACAC 
+#define SOL_BIT (6)     //12h-無理 11-10 ?? 9-7reserved 6-5?? 4reserved
+
+//code
+ALIGN 4
+PUSH
+ORG	0x2B484
+BYTE	$00 $49 $8F $46
+POIN	astron
+POP
+
+astron:
+#incbin "astraether.dmp"
+POIN hasTenku //0
+POIN hasYoukoh //4
+POIN hasRyusei //8
+POIN hasImpale //12
+POIN hasEclipse //16
+POIN hasJihad //20
+POIN set_skillanime_attack
+POIN hasNihil
+POIN fodes_func
+POIN HasRupturedSky
+
+ALIGN 4
+
+//ORG 0xE487D0
+
+PUSH
+
+ORG		0x2B666
+	BYTE	$C0 $46
+WORD	0x46874800
+POIN	taiyo4
+
+
+ORG 0x02b690   //revert
+SHORT 0x0351 0x0b49
+
+ORG 0x02b720   //revert
+SHORT 0x0351 0x0b49
+
+
+ORG 0x05943a
+   SHORT 0x46C0
+   BL(0x89310)  //sol_divide_anim_on
+ORG 0x0594a0
+   SHORT 0x46C0
+   BL(0x89310)  //sol_divide_anim_on
+
+ORG 0x0839e8    //revert
+   SHORT 0x1c30 0x305d 0x2100 0x5641
+ORG 0x083a1c
+   jumpToHack(sol_divide_anim_off)
+
+ORG		0x531D8
+WORD	0x468F4900
+POIN	taiyo1
+
+ORG		0x59456
+	BYTE	$1B $48 $87 $46 $00 $00		//to taiyo3
+ORG		0x594C4
+POIN	taiyo3
+
+ORG		0x594bc
+	WORD	0x46874800
+	POIN	taiyo2
+
+
+
+
+/////////////////////////
+
+ORG		0x59423
+	BYTE	$4E
+ORG		0x5942a
+	BYTE	$80
+ORG		0x5948b
+	BYTE	$4E
+ORG		0x5948e
+	BYTE	$80
+
+//
+POP
+
+taiyo1:
+    #incbin "taiyo1.gba"
+    POIN taiyo11+1
+    WORD SOL_WORK_ADDRESS
+
+ALIGN	4
+taiyo11:
+	#incbin "taiyo11.gba"
+ALIGN	4
+taiyo2:
+    #incbin "taiyo2.gba"
+    WORD SOL_WORK_ADDRESS
+ALIGN	4
+taiyo3:
+	#incbin "taiyo3.gba"
+    WORD SOL_WORK_ADDRESS
+ALIGN	4
+taiyo4:
+	#incbin "taiyo44.dmp"
+    WORD SOL_WORK_ADDRESS
+    POIN hasSOL
+    WORD SOL_BIT
+    POIN set_skillanime_attack
+    POIN hasNihil
+
+sol_divide_anim_on:
+#incbin sol_divide_anim_on.dmp
+WORD SOL_BIT
+ALIGN 4
+
+sol_divide_anim_off:
+#incbin sol_divide_anim_off.dmp
+WORD SOL_BIT
+ALIGN 4
+
+hasSOL:
+    HAS_OCCULT
+    WORD SolID
+hasTenku:
+    HAS_OCCULT
+    WORD AetherID
+hasYoukoh:
+    HAS_OCCULT
+    WORD FlareID
+hasRyusei:
+    HAS_OCCULT
+    WORD AstraID
+hasImpale:
+    HAS_OCCULT
+    WORD ImpaleID
+hasEclipse:
+    HAS_OCCULT
+    WORD EclipseID
+hasJihad:
+    HAS_OCCULT
+    WORD JihadID
+HasRupturedSky:
+    HAS_OCCULT
+    WORD RupturedSkyID
+
+

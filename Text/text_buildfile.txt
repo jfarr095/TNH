@@ -1,0 +1,13 @@
+#0x5D9 DodgeLabel
+必避[X]
+
+#0x64A DodgeDescription
+敵の必殺を回避する能力です[N]
+この値だけ　敵の必殺が減ります[X]
+
+#0x6D LeadershipLabel
+指揮[X]
+
+#0x6E LeadershipDescription
+ユニットの持つ指揮能力です[N]
+値につき自軍の戦闘力があがります[X]
