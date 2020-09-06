@@ -1,0 +1,23 @@
+skill_079_unit:
+   BYTE $00 $00 0 
+skill_079_class:
+   BYTE $00 $00 0
+skill_079_weapon:
+   BYTE $00 $00 0 
+skill_079_item:
+   BYTE $00 $00 0 
+#define SKL_HELP_079 $05C5
+#define SKL_COLOR_079 $FF
+ 
+#define COMBAT_ART_079_ATK 00 
+#define COMBAT_ART_079_HIT 00 
+#define COMBAT_ART_079_CRT 00 
+#define COMBAT_ART_079_AVO 00 
+#define COMBAT_ART_079_COST 05 
+#define COMBAT_ART_079_WEAPON $00 
+#define COMBAT_ART_079_INFO 00 
+#define COMBAT_ART_079_DUMMY 00 
+ 
+COMPLEX_SKILL_079:
+   BYTE $00 $00 0 
+

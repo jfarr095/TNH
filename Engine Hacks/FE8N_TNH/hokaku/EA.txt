@@ -1,0 +1,35 @@
+PUSH
+
+ORG		0x252f4
+	#incbin "hokaku_f.gba"	///////////////ここを変える
+	
+
+ORG		0x180cc
+WORD	0x468F4900
+POIN	hokaku_hack1
+
+ORG		0x22f04
+	#incbin "Trade_Jouken.gba"
+
+ORG		0x251d2
+	#incbin "Trade.gba"
+
+ORG		0x2524e
+	BYTE	$40
+	
+ORG		0x2d724
+	#incbin "face.gba"
+
+ORG		0x321B0
+WORD	0x468F4900
+POIN	hokaku_hack2
+
+POP
+
+hokaku_hack1:
+	#incbin "kaihoh.gba"
+ALIGN	4
+
+hokaku_hack2:
+	#incbin "HowtoExp.gba"
+ALIGN	4

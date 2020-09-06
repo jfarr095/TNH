@@ -1,0 +1,23 @@
+skill_160_unit:
+   BYTE $00 $00 0 
+skill_160_class:
+   BYTE $00 $00 0 
+skill_160_weapon:
+   BYTE $00 $00 0 
+skill_160_item:
+   BYTE $00 $00 0 
+#define SKL_HELP_160 $0FB7
+#define SKL_COLOR_160 $FF
+ 
+#define COMBAT_ART_160_ATK 02 
+#define COMBAT_ART_160_HIT 00 
+#define COMBAT_ART_160_CRT 00 
+#define COMBAT_ART_160_AVO 15 
+#define COMBAT_ART_160_COST 03 
+#define COMBAT_ART_160_WEAPON $FF 
+#define COMBAT_ART_160_INFO 02 
+#define COMBAT_ART_160_DUMMY 00 
+ 
+COMPLEX_SKILL_160:
+   BYTE $00 $00 0 
+

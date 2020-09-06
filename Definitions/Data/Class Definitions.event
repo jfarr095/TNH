@@ -1,1 +1,6 @@
 #define Legionnaire 0x2
+#define LegionnaireMapSprite 0x1
+#define LegionnaireSwordAnim 0x1
+#define LegionnaireAxeAnim 0x2
+#define LegionnaireHandAxeAnim 0x3
+#define LegionnaireUnarmedAnim 0x4

@@ -1,0 +1,6 @@
+#include "Instrument/_Master Instrument Installer.event"
+
+{
+SongTable(Birth_of_the_Holy_Knight,BirthOfTheHolyKnight,1)
+#include "S Files/BirthOfTheHolyKnight.event"
+}

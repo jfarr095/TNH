@@ -1,0 +1,23 @@
+skill_026_unit:
+   BYTE $00 $00 0 
+skill_026_class:
+   BYTE $00 $00 0 
+skill_026_weapon:
+   BYTE $00 $00 0 
+skill_026_item:
+   BYTE $00 $00 0 
+#define SKL_HELP_026 $05CB
+#define SKL_COLOR_026 $FF
+ 
+#define COMBAT_ART_026_ATK 00 
+#define COMBAT_ART_026_HIT 00 
+#define COMBAT_ART_026_CRT 00 
+#define COMBAT_ART_026_AVO 00 
+#define COMBAT_ART_026_COST 05 
+#define COMBAT_ART_026_WEAPON $FF 
+#define COMBAT_ART_026_INFO 00 
+#define COMBAT_ART_026_DUMMY 00 
+ 
+COMPLEX_SKILL_026:
+   BYTE $00 $00 0 
+

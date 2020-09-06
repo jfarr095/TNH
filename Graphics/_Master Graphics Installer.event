@@ -1,1 +1,7 @@
+#include "Animations/_Master Animation Installer.event"
+
+#include "Icons/_Master Icon Installer.event"
+
+#include "Map Sprites/_Master Map Sprite Installer.event"
+
 #include "Mugs/_Master Mug Installer.event"

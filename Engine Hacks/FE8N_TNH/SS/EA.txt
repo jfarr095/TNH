@@ -1,0 +1,19 @@
+PUSH
+
+ORG	0x5D3074	///////////AI2-0xDの位置
+POIN	Stalker
+
+ORG	0x3A954
+WORD	$46874800
+POIN	SuperStalker
+
+POP
+///////////
+Stalker:
+#incbin "AI.bin"
+ALIGN 4
+
+SuperStalker:
+#incbin "SS.gba"
+ALIGN 4
+

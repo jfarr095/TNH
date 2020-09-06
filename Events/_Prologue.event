@@ -22,6 +22,7 @@ CharacterBasedEvents:
 	END_MAIN
 
 MiscBasedEvents:
+	CauseGameOverIfLordDies
 	END_MAIN
 
 LocationBasedEvents:
@@ -45,10 +46,11 @@ Tutorial:
 	END_MAIN
 
 Units1:
-	UNIT Isaac Legionnaire 0x0 Level(1,Ally,0) [10,1] 0 0 0 0 [IronSword] NoAI
+	UNIT Isaac Legionnaire 0x0 Level(1,Ally,0) [10,1] 0 0 0 0 [Alondite] NoAI
 	UNIT
 
 EnemyUnits:
+	UNIT PrologueBandit Soldier 0x0 Level(2,Enemy,1) [5,5] 0 0 0 0 [IronLance] AttackInRangeAI
 	UNIT PrologueBandit Brigand 0x0 Level(4,Enemy,1) [18,15] 2 0 0 0 [HandAxe] AttackInRangeAI
 	UNIT
 

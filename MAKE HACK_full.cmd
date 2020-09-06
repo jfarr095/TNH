@@ -16,8 +16,9 @@ set "target_ups=%~dp0ROMs\TNH.ups"
 @rem defining tools
 
 set "c2ea=%~dp0Tools\C2EA\c2ea"
-set "textprocess=%~dp0Tools\TextProcess\text-process-classic"
-set "ups=%~dp0Tools\ups\ups"
+set "textprocess=%~dp0Tools\TextProcess\text-process-classic.exe"
+set "tmx2ea=%~dp0Tools\tmx2ea\tmx2ea.exe"
+set "ups=%~dp0Tools\ups\ups.exe"
 set "parsefile=%~dp0Event Assembler\Tools\ParseFile.exe"
 
 @rem set %~dp0 into a variable because batch is stupid and messes with it when using conditionals?
@@ -26,6 +27,7 @@ set "base_dir=%~dp0"
 
 @rem do the actual building
 
+echo:
 echo Copying ROM
 
 copy "%source_rom%" "%target_rom%"
@@ -39,6 +41,14 @@ if /I not [%1]==[quick] (
 
   cd "%base_dir%Text"
   echo: | ("%textprocess%" text_buildfile.txt --parser-exe "%parsefile%")
+
+  echo:
+  echo Processing maps
+  echo:
+
+  cd "%base_dir%Maps"
+  echo: | ("%tmx2ea%" -s)
+  echo:
 
 )
 

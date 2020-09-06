@@ -1,3 +1,34 @@
 
 // Event Assembler/EA Standard Library/Chapter Structure Helpers.txt
 #define EventPointerTable(id,offset) "PUSH; ORG EventPointerListOffset+(4*id); POIN offset; POP"
+#define GotoPrepScreen "CALL 0x5B9DBC"
+
+// Event Assembler/EA Standard Library/Main Code Helpers.txt
+#define CauseGameOverIfLordDies "BYTE 1 0 0 0; POIN 0x5B9EE8; BYTE 0x65 0 0 0"
+
+#define SongTable(index,SongPointer,Group) "PUSH; ORG SongTableOffset+(8*index); POIN SongPointer; SHORT Group Group; POP"
+
+#define AnimTableEntry(index) "ORG AnimationTable + ((index-0x1) * 0x20)"
+
+#define SwordAnim(Animation) "BYTE Swords 0x01 ; SHORT Animation"
+#define SpearAnim(Animation) "BYTE Lances 0x01 ; SHORT Animation"
+#define LanceAnim(Animation) "BYTE Lances 0x01 ; SHORT Animation"
+#define AxeAnim(Animation) "BYTE Axes 0x01 ; SHORT Animation"
+#define HandAxeAnim(Animation) "BYTE HandAxe 0x00 ; SHORT Animation ; BYTE Tomahawk 0x00 ; SHORT Animation ; BYTE Hatchet 0x00 ; SHORT Animation"
+#define HandaxeAnim(Animation) "BYTE HandAxe 0x00 ; SHORT Animation ; BYTE Tomahawk 0x00 ; SHORT Animation ; BYTE Hatchet 0x00 ; SHORT Animation"
+#define BowAnim(Animation) "BYTE Bows 0x01 ; SHORT Animation"
+#define StaffAnim(Animation) "BYTE Staves 0x01 ; SHORT Animation"
+#define AnimaAnim(Animation) "BYTE Anima 0x01 ; SHORT Animation"
+#define LightAnim(Animation) "BYTE Light 0x01 ; SHORT Animation"
+#define DarkAnim(Animation) "BYTE Dark 0x01 ; SHORT Animation"
+#define MagicAnim(Animation) "BYTE Anima 0x01 ; SHORT Animation ; BYTE Light 0x01 ; SHORT Animation ; BYTE Dark 0x01 ; SHORT Animation"
+#define BallistaAnim(Animation) "BYTE Ballista 0x00 ; SHORT Animation ; BYTE IronBallista 0x00 ; SHORT Animation ; BYTE KillerBallista 0x00 ; SHORT Animation"
+#define UnarmedAnim(Animation) "BYTE Disarmed 0x01 ; SHORT Animation"
+#define DisarmedAnim(Animation) "BYTE Disarmed 0x01 ; SHORT Animation"
+#define SpecialAnim(Animation,Weapon) "BYTE Weapon 0x00 ; SHORT Animation"
+#define EndAnim "WORD 0x0"
+
+#define StandingMapSpriteInstaller(index,Size,ImageData) "PUSH; ORG MapSpriteTable + (index * 8); BYTE 2 0 Size 0; POIN ImageData; POP"
+#define WalkingMapSpriteInstaller(index,ImageData,APData) "PUSH; ORG MiscMapSpriteTable + ((index-1) * 8); POIN ImageData APData; POP"
+
+#define ItemIconOffset(iconID) "ItemIconTable + 0x80*iconID"

@@ -1,0 +1,19 @@
+ALIGN 4
+{
+	#include "Axe Installer.event"
+}
+
+ALIGN 4
+{
+	#include "HandAxe Installer.event"
+}
+
+ALIGN 4
+{
+	#include "Sword Installer.event"
+}
+
+ALIGN 4
+{
+	#include "Unarmed Installer.event"
+}

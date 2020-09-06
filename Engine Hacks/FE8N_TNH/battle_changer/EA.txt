@@ -1,0 +1,11 @@
+PUSH
+
+ORG	0x74ba6
+#incbin "battle_changer.gba"
+
+
+ORG 0x74bdc
+WORD	$0202BCEC
+SHORT	$8886 $46C0
+
+POP

@@ -1,0 +1,12 @@
+// AP Data
+#define DefaultAP 0x1B6DE0
+
+// Movement Cost Data
+#define RiverCrossMoveType 0x85FD60
+#define RiverCrossRainMoveType 0x8601B1
+#define RiverCrossSnowMoveType 0x8605C1
+
+// Terrain Bonus Data
+#define GetTerrainAvoBonus 0x8609D1
+#define GetTerrainDefBonus 0x860A12
+#define GetTerrainResBonus 0x860A53

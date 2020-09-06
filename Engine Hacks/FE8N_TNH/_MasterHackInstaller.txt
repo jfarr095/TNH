@@ -1,0 +1,29 @@
+////header
+//    #include _revert.txt
+    #include "Extensions\Hack Installation.txt"
+    #include "_N\EA.txt"
+//////////////////////////////////////////
+
+	#include "magic\MAGICforN.txt"
+//	#include "Fatigue\EA.txt"
+	#include "Capture\EA.event"
+	#include "RePreparation\EA.txt"
+	#include "hokaku\EA.txt"
+	#include "SS\EA.txt"
+	#include "battle_changer\EA.txt"
+	#include "MultiLevelMax\Installer.event"
+	#include "Battle music change2\install battle_music_changer2.event"
+	#include "FE8-Set Condition\FE8-Set Condition.event"
+	#include "Fire_Dragon\Fire_Dragon_Data.txt"
+	#include "DanceAi\DanceAi.event"
+	#include "ChangeItemSellPrice\Sell_Price_expansion.event"
+	#include "ChangePortrait\PATCH_Fix EnemyCapture_GetUnitPortraitId.txt"
+	
+	#include "Installer\BattleScreen.event"
+	#include "LevelUp\LevelUp.event"
+	
+	
+//	#include "256 colors titlebackground\titlebackgroundinstaller.event"
+//	#include "EVENTSCRIPT_Show_map_emotion\Show_map_emotion_Install.event"
+
+

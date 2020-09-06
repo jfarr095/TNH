@@ -8,5 +8,11 @@
 #define DodgeDescription $64A
 #define LeadershipLabel $06D
 #define LeadershipDescription $06E
+#define IsaacName $199
+#define IsaacDescription $1F5
+#define LegionnaireName $066
+#define LegionnaireDescription $072
+#define AlonditeName $3AB
+#define BlankItemDescription $38B
 
 #endif // TEXT_DEFINITIONS_TEXT_BUILDFILE_TXT

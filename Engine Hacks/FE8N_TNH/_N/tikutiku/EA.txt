@@ -1,0 +1,15 @@
+PUSH
+
+ORG 0x02b8a4
+jumpToHack(keiken_tikutikukeikenti)
+
+ORG 0x02c138
+jumpToHack(keiken_tikutikuti)
+
+POP
+
+keiken_tikutikukeikenti:
+#incbin "tikutikukeikenti.dmp"
+
+keiken_tikutikuti:
+#incbin "tikutikuti.dmp"

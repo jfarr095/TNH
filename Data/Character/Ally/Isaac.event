@@ -1,0 +1,87 @@
+{
+PUSH
+
+ORG (CharacterTable - 52) + (Isaac * 52)
+
+// Name and Description
+SHORT IsaacName IsaacDescription
+
+// Id
+BYTE Isaac
+
+// Class
+BYTE Legionnaire
+
+// Mug
+SHORT IsaacMug
+
+// Minimug
+BYTE 0x0
+
+// Affinity
+BYTE AffLight
+
+// Sort Order
+BYTE 0x1
+
+//// Stats
+
+//   Bases
+//   Lv  HP  Str Skl Spd Def Res Luk Con
+BYTE 01  14  06  06  07  05  05  08  02
+
+//   Weapon Ranks
+//   Sword Lance Axe   Bow   Staff Anima Light Dark
+BYTE ARank NRank NRank NRank NRank NRank NRank NRank
+
+//   Growths
+//   HP  Str Skl Spd Def Res Luk
+BYTE 90  55  50  45  45  20  30
+
+// Unused
+BYTE 00 00
+
+// Leadership Stars
+BYTE 2
+
+// Skills
+// Personal, Promoted
+BYTE 0 0
+
+// Character Ability
+WORD IsLord
+
+// Supports
+POIN SupportData
+
+// Convo Group
+BYTE 1
+
+// Nonplayer Skill
+BYTE 0
+
+//   Magic
+//   Base Growth
+BYTE 06   25
+
+POP
+
+ALIGN 4
+SupportData:
+
+// Support Partners
+BYTE Lizzy Ferris Audrey Brian Kara Elise 0
+
+// Support Values
+BYTE 8 8 9 8 7 12 0
+
+// Support Growths
+BYTE 10 3 4 4 4 5 0
+
+// Partners
+BYTE 6
+
+// Unused
+SHORT 0
+
+}

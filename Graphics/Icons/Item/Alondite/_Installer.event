@@ -1,0 +1,4 @@
+PUSH
+ORG ItemIconOffset(AlonditeIcon)
+#incbin "ItemIcon.dmp"
+POP

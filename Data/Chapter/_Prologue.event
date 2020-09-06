@@ -1,0 +1,144 @@
+{
+PUSH
+
+ORG ChapterDataTable + (Prologue * 79)
+
+// Unused
+WORD 0
+
+// Map Data (Set by tmx file later)
+WORD 0 0
+
+// Fog Range
+BYTE 0
+
+// Unused
+BYTE 0
+
+// Chapter Title Id
+BYTE 0
+
+// Unused
+BYTE 0
+
+// Initial Coords (X,Y)
+BYTE 10 1
+
+// Weather
+BYTE 0
+
+// Battle Background
+BYTE 0
+
+// Difficulty (HardBonus << 4 | EasyPenalty) NormalPenalty
+BYTE (03<<4)|00 00 
+
+// BGM (Player, Enemy, NPC Phase)
+SHORT Birth_of_the_Holy_Knight Shadow_of_the_Enemy Birth_of_the_Holy_Knight
+
+// BGM (Player, Enemy, NPC Battle)
+SHORT Attack Defense Attack
+
+// BGM (Player, Enemy Alternate)
+SHORT 0x0 0x0
+
+// BGM (Prep, Victory)
+SHORT Combat_Preparation Grasping_at_Victory
+
+// Unused
+SHORT 0
+
+// Wall HP
+BYTE 50
+
+// Tactics Eval
+//   A Rank
+//   EliN EliH HecN HecH
+BYTE 15   10   15   10
+//   B Rank
+//   EliN EliH HecN HecH
+BYTE 18   12   18   12
+//   C Rank
+//   EliN EliH HecN HecH
+BYTE 22   14   22   14
+//   D Rank
+//   EliN EliH HecN HecH
+BYTE 24   16   24   16
+
+// Unused
+BYTE 0
+
+// Exp Eval
+//    A Rank
+//    EliN  EliH  HecN  HecH
+SHORT 7000  7000  6000  6000
+//    B Rank
+//    EliN  EliH  HecN  HecH
+SHORT 6000  6000  5000  5000
+//    C Rank
+//    EliN  EliH  HecN  HecH
+SHORT 3000  3000  3000  3000
+//    D Rank
+//    EliN  EliH  HecN  HecH
+SHORT 2000  2000  2000  2000
+
+// Unused
+SHORT 0
+
+// Asset Eval
+//   EliN   EliH   HecN  HecH
+WORD 150000 200000 20000 20000
+
+// Map Name
+SHORT 0xE8
+
+// Unused
+SHORT 0
+
+// Event Id
+BYTE PrologueEvent
+
+// World Map Event
+BYTE 1
+
+// Unused
+BYTE 0 0 0 0 0 0 0 0 0 0
+
+// Chapter Number
+BYTE Prologue
+
+// Unused
+BYTE 0 0 0 0 0
+
+// Enemies for Victory BGM
+BYTE 1
+
+// Fade to Black
+BYTE 1
+
+// Objective (Menu, Map)
+SHORT 0x12C 0x125
+
+// Objective Window Display
+BYTE 3
+
+// Defend Turns - 1
+BYTE 0
+
+// Defend Unit
+BYTE 0
+
+// Arrow Marker (X,Y) (0xFF for none)
+BYTE 10 1
+
+// Unused
+BYTE 0
+
+// Second Palette
+BYTE 0
+
+// Unused
+BYTE 0
+
+POP
+}

@@ -1,0 +1,7 @@
+#include "Chapter/_Master Chapter Installer.event"
+
+#include "Character/_Master Character Installer.event"
+
+#include "Class/_Master Class Installer.event"
+
+#include "Item/_Master Item Installer.event"

@@ -1,0 +1,32 @@
+NAME=レベル上限値をクラスとユニット別に変更する
+NAME.en=Change the level upper limit value for each class and unit
+
+INFO=レベルの上限値をクラスとユニット別に設定します。\r\nルール\r\n見習いフラグがある場合、このチェックは無視されます。\r\nユニットとクラスで、最大レベルを設定します。\r\nクラス単位にレベルを設定したい場合、ユニットに0xFF(ANY)を設定します。\r\nユニット単位にレベルを設定したい場合、クラスに0xFF(ANY)を設定します。\r\nこの表にマッチしなかったものは、ディフォルトのレベル上限が利用されます。(通常20です。パッチで変更可能です。)
+
+IF:0x2B9A8=0x00 0x49
+
+//STRUCTパッチとして実装します
+TYPE=STRUCT
+
+//データへのポインタ
+POINTER=$GREP4END 0x02 0x48 0x87 0x46 0x02 0x48 0x87 0x46 0xC5 0xB9 0x02 0x08 0xB3 0xB9 0x02 0x08 0xBD 0xB9 0x02 0x08
+
+//データサイズ(10進数)
+DATASIZE=4
+
+//データ個数 00 が出てくるまで
+DATACOUNT=$GREP4 0x00 0x00 0x00 0x00
+
+//リストに表示されるのはユニット名です
+LISTNAME=$B0:UNIT
+
+//データを定義します
+B0:UNIT=Unit(0xFF=ANY)
+B1:CLASS=Class(0xFF=ANY)
+B2:DECIMAL=MaxLevel
+B3=00
+INFO.en=Set the upper limit of the level for each class and unit.\r\nrule\r\nIf there is an apprentice flag, this check is ignored.\r\nSet the maximum level in units and classes.\r\nIf you want to set the level for each class, set 0xFF (ANY) to the unit.\r\nIf you want to set the level for each unit, set 0xFF (ANY) for the class.\r\nFor those that did not match this table, the default level limit is used.(It is usually 20.It can be changed with a patch.).
+NAME.zh=更改每个班级和单位的等级上限
+INFO.zh=为每个班级和单位设置级别的上限。\r\n规则\r\n如果有学徒标志，则该检查将被忽略。\r\n以单位和班级设置最高级别。\r\n如果要为每个类设置电平，请将0xFF（ANY）设置为该单元。\r\n如果你想为每个单元设置电平，请为该类设置0xFF（ANY）。\r\n对于那些与此表不匹配的用户，将使用默认级别限制。（通常是20。它可以通过修补程序进行更改。）。
+NAME.de=Ändern Sie das obere Limit für jede Klasse und Einheit
+INFO.de=Legen Sie die Obergrenze des Levels für jede Klasse und Einheit fest.\r\nRegel\r\nWenn es eine Lehrlingsfahne gibt, wird diese Prüfung ignoriert.\r\nLegen Sie die maximale Stufe in Einheiten und Klassen fest.\r\nWenn Sie die Ebene für jede Klasse festlegen möchten, setzen Sie 0xFF (ANY) auf die Einheit.\r\nWenn Sie die Stufe für jede Einheit festlegen möchten, legen Sie 0xFF (ANY) für die Klasse fest.\r\nFür diejenigen, die nicht mit dieser Tabelle übereinstimmen, wird das Standard-Level-Limit verwendet.(Es ist normalerweise 20.Es kann mit einem Patch geändert werden.).

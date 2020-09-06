@@ -1,0 +1,7 @@
+Flag_Move=$50
+adr=$50
+Map_Move1=$54
+Map_Move2=$58
+kyotenMap=$10
+kyotenFlag=$26
+NoMove=$3A

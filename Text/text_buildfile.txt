@@ -11,3 +11,24 @@
 #0x6E LeadershipDescription
 ユニットの持つ指揮能力です[N]
 値につき自軍の戦闘力があがります[X]
+
+#0x199 IsaacName
+アイザック[X]
+
+#0x1F5 IsaacDescription
+エトルリアの元騎士隊長で[N]
+貴族の出身[N]
+現在は傭兵隊長として皆を導く[X]
+
+#0x66 LegionnaireName
+ワイルドギース[X]
+
+#0x72 LegionnaireDescription
+渡り鳥のように戦場を流れ歩く猛者[N]
+装備『剣・斧・盾』[X]
+
+#0x3AB AlonditeName
+アロンダイト[X]
+
+#0x38B BlankItemDescription
+　[X]

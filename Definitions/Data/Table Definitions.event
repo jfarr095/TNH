@@ -1,0 +1,93 @@
+//ifndef guards
+#ifndef TABLE_DEFINITIONS
+
+#define TABLE_DEFINITIONS
+
+#define IsWeapon 0x1
+#define IsMagic 0x2
+#define IsStaff 0x4
+#define Indestructible 0x8
+#define Unsellable 0x10
+#define IsBrave 0x20
+#define MagicDamage 0x40
+#define Uncounterable 0x80
+#define ReverseTriangle 0x100
+#define CannotRepair 0x200
+#define MonsterWeapon 0x400
+#define WeaponLock1 0x800
+#define SwordmasterLock 0x1000
+#define WeaponLock2 0x2000
+#define NegateFlyingEffectiveness 0x4000
+#define NegateCriticals 0x8000
+#define CannotUse 0x10000
+#define NegateDef 0x20000
+#define EirikaLock 0x40000
+#define EphraimLock 0x80000
+#define WeaponLock3 0x100000
+#define WeaponLock4 0x200000
+#define IsShield 0x2000000
+#define IsPrayerAmulet 0x4000000
+
+#define MountedAid 0x1
+#define HasCanto 0x2
+#define Steal 0x4
+#define CanUseLockpick 0x8
+#define CanDance 0x10
+#define CanPlay 0x20
+#define CritBoost 0x40
+#define UseBallista 0x80
+#define IsPromoted 0x100
+#define IsSupply 0x200
+#define HorseIcon 0x400
+#define DragonIcon 0x800
+#define PegIcon 0x1000
+#define IsLord 0x2000
+#define IsFemale 0x4000
+#define IsBoss 0x8000
+#define WeaponUnlock1 0x10000
+#define SwordmasterUnlock 0x20000
+#define UseMonsterWeapons 0x40000
+#define TraineeLevelCap 0x80000
+#define CannotControl 0x100000
+#define TriangleAttack 0x200000
+#define TriangleAttack2 0x400000
+#define DecrementIDAfterLoad 0x800000
+#define GiveNoExp 0x1000000
+#define Lethality 0x2000000
+#define IsMagicSeal 0x4000000
+#define Summoning 0x8000000
+#define UnlockEirika 0x10000000
+#define UnlockEphraim 0x20000000
+#define UnlockLock3 0x40000000
+#define UnlockLock4 0x80000000
+
+#define Sword 0x0
+#define Lance 0x1
+#define Axe 0x2
+#define Bow 0x3
+#define Staff 0x4
+//#define Anima 0x5
+//#define Light 0x6
+//#define Dark 0x7
+#define ItemType 0x9
+#define MonsterWeaponType 0xb
+#define RingType 0xc
+
+#define NoRank 0x0
+#define NRank 0x0
+#define ERank 0x1
+#define DRank 0x1F
+#define CRank 0x47
+#define BRank 0x79
+#define ARank 0xB5
+#define SRank 0xFB
+
+#define AffFire 0x1
+#define AffThunder 0x2
+#define AffWind 0x3
+#define AffIce 0x4
+#define AffDark 0x5
+#define AffLight 0x6
+#define AffAnima 0x7
+
+#endif // TABLE_DEFINITIONS

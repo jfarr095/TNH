@@ -2,8 +2,14 @@
 
 #include "Class Definitions.event"
 
-#include "Mug Definitions.event"
+#include "Item Definitions.event"
+
+#include "Music Definitions.event"
 
 #include "PList Definitions.event"
+
+#include "Pointer Definitions.event"
+
+#include "Table Definitions.event"
 
 #include "Tileset Definitions.event"

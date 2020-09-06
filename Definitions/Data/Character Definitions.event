@@ -1,5 +1,13 @@
 // Player
 #define Isaac 0x1
+#define IsaacMug 0x2
+
+#define Lizzy 0xF
+#define Ferris 0x8
+#define Audrey 0xC
+#define Brian 0x9
+#define Kara 0x6
+#define Elise 0x23
 
 // Enemy
 #define PrologueBandit 0x65

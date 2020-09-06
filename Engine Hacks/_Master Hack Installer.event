@@ -1,5 +1,5 @@
 #include "Bps/_FE8N Installer.event"
 
-#include "FE8N/_MasterHackInstaller.txt"
+#include "FE8N_TNH/_MasterHackInstaller.txt"
 
 #include "SkipOpeningWorldMapEvent/Installer.event"

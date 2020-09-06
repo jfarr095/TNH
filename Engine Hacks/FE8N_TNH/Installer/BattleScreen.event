@@ -1,0 +1,61 @@
+// 856664 - tsa 1 // length 180
+// Pointer at 529B0
+
+// 856718 - tsa 2 // length 540
+// Pointer at 529B8
+
+// 8567CC - tsa 3 // length 210
+// Pointer at 520AC
+
+// 8568A0 - tsa 4 // length 224
+// Pointer at 520B4
+
+// 856980 - tsa single // length 224
+// Pointer at 5215C
+
+// 856A60 - tsa 5 // length 80 (all 0?)
+// Pointer at 52E68
+
+// TSA Range - 856664 to 856AAF
+
+PUSH
+
+ORG 0x52c60
+POIN MainTiles
+
+ORG 0x52cc0
+POIN LeftNameTiles
+
+ORG 0x52d20
+POIN LeftItemTiles
+
+ORG 0x52d80
+POIN RightNameTiles
+
+ORG 0x52e5c
+POIN RightItemTiles
+
+ORG 0x856664
+#incbin "TSA.bin"
+
+ORG 0x856AB0
+#incbin "Palette.bin"
+
+POP
+
+ALIGN 4
+
+MainTiles:
+#incext png2dmp "Main.png" --lz77
+
+LeftNameTiles:
+#incext png2dmp "NameLeft.png" --lz77
+
+LeftItemTiles:
+#incext png2dmp "ItemLeft.png" --lz77
+
+RightNameTiles:
+#incext png2dmp "NameRight.png" --lz77
+
+RightItemTiles:
+#incext png2dmp "ItemRight.png" --lz77

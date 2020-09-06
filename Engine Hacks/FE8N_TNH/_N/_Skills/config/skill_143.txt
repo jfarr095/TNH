@@ -1,0 +1,23 @@
+skill_143_unit:
+   BYTE $00 $00 0 
+skill_143_class:
+   BYTE $00 $00 0 
+skill_143_weapon:
+   BYTE $00 $00 0 
+skill_143_item:
+   BYTE $F9 $00 0 
+#define SKL_HELP_143 $0000
+#define SKL_COLOR_143 $00
+ 
+#define COMBAT_ART_143_ATK 00 
+#define COMBAT_ART_143_HIT 00 
+#define COMBAT_ART_143_CRT 00 
+#define COMBAT_ART_143_AVO 00 
+#define COMBAT_ART_143_COST 05 
+#define COMBAT_ART_143_WEAPON $FF 
+#define COMBAT_ART_143_INFO 00 
+#define COMBAT_ART_143_DUMMY 00 
+ 
+COMPLEX_SKILL_143:
+   BYTE $00 $00 0 
+

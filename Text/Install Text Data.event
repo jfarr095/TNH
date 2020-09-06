@@ -25,6 +25,30 @@ __TEXTPROCESS06E:
 #incbin ".TextEntries\text_buildfileLeadershipDescription.fetxt.dmp"
 setText($6E, __TEXTPROCESS06E)
 
+__TEXTPROCESS199:
+#incbin ".TextEntries\text_buildfileIsaacName.fetxt.dmp"
+setText($199, __TEXTPROCESS199)
+
+__TEXTPROCESS1F5:
+#incbin ".TextEntries\text_buildfileIsaacDescription.fetxt.dmp"
+setText($1F5, __TEXTPROCESS1F5)
+
+__TEXTPROCESS066:
+#incbin ".TextEntries\text_buildfileLegionnaireName.fetxt.dmp"
+setText($66, __TEXTPROCESS066)
+
+__TEXTPROCESS072:
+#incbin ".TextEntries\text_buildfileLegionnaireDescription.fetxt.dmp"
+setText($72, __TEXTPROCESS072)
+
+__TEXTPROCESS3AB:
+#incbin ".TextEntries\text_buildfileAlonditeName.fetxt.dmp"
+setText($3AB, __TEXTPROCESS3AB)
+
+__TEXTPROCESS38B:
+#incbin ".TextEntries\text_buildfileBlankItemDescription.fetxt.dmp"
+setText($38B, __TEXTPROCESS38B)
+
 }
 
 #endif // TEXT_INSTALLER_TEXT_BUILDFILE_TXT

@@ -1,0 +1,10 @@
+ALIGN 4
+LegionnaireStanding:
+#incbin "Standing.dmp"
+
+ALIGN 4
+LegionnaireWalking:
+#incbin "Walking.dmp"
+
+StandingMapSpriteInstaller(LegionnaireMapSprite,1,LegionnaireStanding)
+WalkingMapSpriteInstaller(Legionnaire,LegionnaireWalking,DefaultAP)

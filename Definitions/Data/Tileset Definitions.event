@@ -1,6 +1,3 @@
-
-// Vanilla
-
 #define FieldsObjectSet 0x1
 #define FieldsPalette 0x2
 #define FieldsPalette2 0x38 //darker colors
@@ -66,37 +63,3 @@
 #define StrongholdPalette2 0x7B //faded color
 #define StrongholdTileConfig 0x7B
 #define StrongholdTorchTileAnimations 0x7D
-
-// Imported
-
-#define SnowObjectSet 0xA4
-#define SnowPalette 0xA5
-#define SnowTileConfig 0xA6
-#define SnowWaterTileAnimations 0xA7
-#define SnowIceTileAnimations 0xA8 //type 2
-
-#define SnowCastleObjectSet 0xA9
-#define SnowCastlePalette 0xAA
-#define SnowCastleTileConfig 0xAB
-#define SnowCastleIceTileAnimations SnowIceTileAnimations //type 2
-
-#define FrontierObjectSet 0xAC
-#define FrontierPalette 0xAD
-#define FrontierTileConfig 0xAE
-#define FrontierWaterTileAnimations FieldsWaterTileAnimations
-
-#define FrontierVillageObjectSet 0xAF
-#define FrontierVillagePalette 0xB0
-#define FrontierVillageTileConfig 0xB1
-
-#define CaveObjectSet 0xB2
-#define CavePalette 0xB3
-#define CaveTileConfig 0xB4
-#define CaveWaterTileAnimations 0xB5
-
-#define DragonsGateObjectSet 0xB6
-#define DragonsGatePalette 0xB7
-#define DragonsGateTileConfig 0xB8
-#define DragonsGateAnimations 0xBA
-
-

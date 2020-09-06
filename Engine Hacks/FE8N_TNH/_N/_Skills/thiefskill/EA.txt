@@ -1,0 +1,11 @@
+PUSH
+
+ORG 0x23e44
+WORD	$468F4900 //r1
+POIN	thief_kagiake
+SHORT	$46C0
+
+POP
+
+thief_kagiake:
+    #incbin kagiake.gba

@@ -1,0 +1,30 @@
+PUSH
+
+ORG 0x032d6c
+jumpToHack(flag_kyotenidoupointa)
+
+ORG 0x089878
+jumpToHack(flag_kyotenidou)
+
+POP
+
+flag_kyotenidoupointa:
+#incbin "kyotenidoupointa.dmp"
+POIN flagMove
+POIN flagMapA
+POIN flagMapB
+
+flag_kyotenidou:
+#incbin "kyotenidou.dmp"
+POIN flagMove
+POIN flagMapA
+POIN flagMapB
+
+flagMove:
+WORD $00000120 ////移動15を解除するフラグID
+
+flagMapA:
+WORD $00000039 ////移動15にするマップID1
+
+flagMapB:
+WORD $0000003C ////移動15にするマップID2

@@ -1,0 +1,78 @@
+{
+PUSH
+
+ORG ClassTable + (Legionnaire * 84)
+
+// Name and Description
+SHORT LegionnaireName LegionnaireDescription
+
+// Id
+BYTE Legionnaire
+
+// Unpromoted Class / 3rd Promo Path
+BYTE 0
+
+// Standing Map Sprite
+BYTE LegionnaireMapSprite
+
+// Move Speed
+BYTE 1
+
+// Class Card
+SHORT 0x92
+
+// Sort Order
+BYTE 1
+
+//   Bases
+//   HP  Str Skl Spd Def Res Con Mov
+BYTE 20  06  05  05  06  00  11  06
+
+//   Caps
+//   HP  Str Skl Spd Def Res Mag
+BYTE 60  21  20  18  21  15  15
+
+// Class Relative Power
+BYTE 3
+
+//   Growths
+//   HP  Str Skl Spd Def Res Luk
+BYTE 95  45  40  35  30  15  40
+
+//   Promotion Gains
+//   HP  Str Skl Spd Def Res
+BYTE 00  00  00  00  00  00
+
+// Class Abilty
+WORD IsPromoted|WeaponUnlock1|UnlockEirika
+
+//   Weapon Ranks
+//   Sword Lance Axe   Bow   Staff Anima Light Dark
+BYTE CRank NRank DRank NRank NRank NRank NRank NRank
+
+// Animation
+POIN LegionnaireAnimation
+
+// Move Costs (Normal,Rain,Snow)
+POIN RiverCrossMoveType RiverCrossRainMoveType RiverCrossSnowMoveType
+
+// Terrain Bonuses (Avo, Def, Res)
+POIN GetTerrainAvoBonus GetTerrainDefBonus GetTerrainResBonus
+
+//   Magic
+//   Base Growth Promo
+BYTE 01   21     00     
+
+// Unused
+BYTE 00
+
+POP
+}
+
+ALIGN 4
+LegionnaireAnimation:
+SwordAnim(LegionnaireSwordAnim)
+AxeAnim(LegionnaireAxeAnim)
+HandAxeAnim(LegionnaireHandAxeAnim)
+UnarmedAnim(LegionnaireUnarmedAnim)
+EndAnim

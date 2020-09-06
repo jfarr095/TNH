@@ -1,0 +1,50 @@
+/*
+FE8J
+DisplayLevelUpScreen - $76170
+MapAnimLevelUp_InitLevelUpBox - $80DD8
+Images - $76210 $80EC4
+Palettes - $76228 $80ED4
+TSAs - $76218 $80ECC
+
+$7618C - Buffer loaded
+$76214 - Buffer
+*/
+
+ALIGN 4
+LevelUpImage:
+#incbin "LevelUpImage.dmp"
+
+ALIGN 4
+LevelUpPal:
+#incbin "LevelUpPal.dmp"
+
+ALIGN 4
+LevelUpTSA:
+#incbin "LevelUpTSA.dmp"
+
+PUSH
+
+ORG $76210
+POIN LevelUpImage
+ORG $80EC4
+POIN LevelUpImage
+
+ORG $76228
+POIN LevelUpPal
+ORG $80ED4
+POIN LevelUpPal
+
+ORG $76218
+POIN LevelUpTSA
+ORG $80ECC
+POIN LevelUpTSA
+
+// Move the text tiles in vram so that they don't overwrite the battle screen's (larger) tiles
+ORG $75C30
+WORD 0x6003C00 // new vram address for text
+ORG $761B4
+SHORT 0x221C 0x0212 // mov r2,#0x1C; lsl r2,#8 (length of graphics)
+ORG $75BFE
+SHORT 0x22F0 //mov r2,#0xF0 (new tile number for text)
+
+POP

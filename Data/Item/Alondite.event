@@ -1,0 +1,59 @@
+{
+PUSH
+
+ORG ItemTable + (Alondite * 36)
+
+// Name, Description, Use Text
+SHORT AlonditeName BlankItemDescription 0
+
+// Id
+BYTE Alondite
+
+// Item Type
+BYTE Sword
+
+// Item Ability
+WORD IsWeapon|Unsellable|EirikaLock
+
+// Stat Bonus
+WORD 0
+
+// Effectiveness
+WORD 0
+
+//   Weapon Stats
+//   Uses Mt Hit Wt Crit
+BYTE 40   14 65  15 10
+
+// Range (Min - Max)
+BYTE 0x11
+
+// Price
+SHORT 0
+
+// Weapon Rank
+BYTE 0
+
+// Item Icon
+BYTE AlonditeIcon
+
+// Item Use Effect
+BYTE 0
+
+// Item Additional Effect
+BYTE 0
+
+// WEXP
+BYTE 1
+
+// Unused
+BYTE 0
+
+// Effectiveness Scale
+BYTE 0
+
+// Item Break Effect
+BYTE 2
+
+POP
+}

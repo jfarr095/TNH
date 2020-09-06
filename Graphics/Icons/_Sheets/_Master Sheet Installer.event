@@ -1,0 +1,17 @@
+ALIGN 4
+ItemIcons:
+#incbin "ItemIconSheet.dmp"
+SkillIcons:
+#incbin "SkillIconSheet.dmp"
+
+#define ItemIconTable ItemIcons
+#define ItemIconSheet ItemIconTable
+#define SkillIconTable SkillIcons
+#define SkillIconSheet SkillIconTable
+
+PUSH
+ORG $3600
+POIN ItemIconTable
+ORG $36d4
+POIN ItemIconTable
+POP
