@@ -6,7 +6,7 @@
 
 @rem defining buildfile config
 
-set "source_rom=%~dp0ROMs\FE8J_clean.gba"
+set "source_rom=%~dp0ROMs\BPS.gba"
 
 set "main_event=%~dp0ROM Buildfile.event"
 

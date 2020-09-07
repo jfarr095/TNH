@@ -1,5 +1,8 @@
-#include "Bps/_FE8N Installer.event"
+ALIGN 4
+//#include "Bps/_FE8N Installer.event"
 
+ALIGN 4
 #include "FE8N_TNH/_MasterHackInstaller.txt"
 
+ALIGN 4
 #include "SkipOpeningWorldMapEvent/Installer.event"

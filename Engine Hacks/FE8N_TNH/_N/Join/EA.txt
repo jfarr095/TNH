@@ -35,8 +35,8 @@ POIN	Pair
 
 //追加 UnitAction での RescureのアドレスをORG に書いてください。
 //rebuildしたら修正してね。
-ORG 0x1B411FC
-POIN	Pair+1
+//ORG 0x1B411FC
+//POIN	Pair+1
 //
 
 ////降ろしても非待機
