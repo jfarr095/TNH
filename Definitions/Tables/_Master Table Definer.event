@@ -12,7 +12,7 @@
 
 #define AnimationTable 0xC00008
 
-#define ItemTable 0x85E068
+#define ItemTable 0x5BA470 //0x85E068
 
 //#define ItemIconTable 0x5BA470
 //#define ItemIconSheet ItemIconTable

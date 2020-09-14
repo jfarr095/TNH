@@ -1,0 +1,7 @@
+ALIGN 16
+WolfMugData:
+#incbin "Wolf_mug.dmp"
+#incbin "Wolf_frames.dmp"
+#incbin "Wolf_palette.dmp"
+#incbin "Wolf_minimug.dmp"
+setMugEntry(WolfMug, WolfMugData, 2, 5, 3, 3)

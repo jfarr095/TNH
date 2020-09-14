@@ -2,6 +2,9 @@ ALIGN 4
 //#include "Bps/_FE8N Installer.event"
 
 ALIGN 4
+#include "antihuffman/Antihuffman.event"
+
+ALIGN 4
 #include "FE8N_TNH/_MasterHackInstaller.txt"
 
 ALIGN 4

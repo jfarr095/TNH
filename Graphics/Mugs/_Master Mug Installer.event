@@ -1,7 +1,3 @@
-ALIGN 16
-IsaacMugData:
-#incbin "Compiled/Isaac/Isaac_mug.dmp"
-#incbin "Compiled/Isaac/Isaac_frames.dmp"
-#incbin "Compiled/Isaac/Isaac_palette.dmp"
-#incbin "Compiled/Isaac/Isaac_minimug.dmp"
-setMugEntry(IsaacMug, IsaacMugData, 3, 5, 3, 3)
+#include "Compiled/Isaac/_Installer.event"
+
+#include "Compiled/Wolf/_Installer.event"

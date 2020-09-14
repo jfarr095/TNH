@@ -14,5 +14,7 @@
 #define LegionnaireDescription $072
 #define AlonditeName $3AB
 #define BlankItemDescription $38B
+#define WolfName $09A
+#define WolfDescription $1F6
 
 #endif // TEXT_DEFINITIONS_TEXT_BUILDFILE_TXT

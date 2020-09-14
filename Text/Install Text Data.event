@@ -49,6 +49,14 @@ __TEXTPROCESS38B:
 #incbin ".TextEntries\text_buildfileBlankItemDescription.fetxt.dmp"
 setText($38B, __TEXTPROCESS38B)
 
+__TEXTPROCESS09A:
+#incbin ".TextEntries\text_buildfileWolfName.fetxt.dmp"
+setText($9A, __TEXTPROCESS09A)
+
+__TEXTPROCESS1F6:
+#incbin ".TextEntries\text_buildfileWolfDescription.fetxt.dmp"
+setText($1F6, __TEXTPROCESS1F6)
+
 }
 
 #endif // TEXT_INSTALLER_TEXT_BUILDFILE_TXT

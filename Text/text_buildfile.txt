@@ -32,3 +32,10 @@
 
 #0x38B BlankItemDescription
 　[X]
+
+#0x9A WolfName
+ヴォルフ[X]
+
+#0x1F6 WolfDescription
+エトルリアの元騎士[N]
+経験豊富なベテラン[X]

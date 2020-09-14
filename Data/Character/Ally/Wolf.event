@@ -1,65 +1,65 @@
 {
 PUSH
 
-ORG (CharacterTable - 52) + (Isaac * 52)
+ORG (CharacterTable - 52) + (Wolf * 52)
 
 // Name and Description
-SHORT IsaacName IsaacDescription
+SHORT WolfName WolfDescription
 
 // Id
-BYTE Isaac
+BYTE Wolf
 
 // Class
-BYTE Legionnaire
+BYTE 0x05
 
 // Mug
-SHORT IsaacMug
+SHORT WolfMug
 
 // Minimug
-BYTE 0x0
+BYTE 0x00
 
 // Affinity
-BYTE AffThunder
+BYTE AffAnima
 
 // Sort Order
-BYTE 0x1
+BYTE 0x03
 
 //   Bases
 //   Lv  HP  Str Skl Spd Def Res Luk Con
-BYTE 01  14  06  06  07  05  05  08  02
+BYTE 04  03  02  06  03  00  01  06  01
 
 //   Weapon Ranks
 //   Sword Lance Axe   Bow   Staff Anima Light Dark
-BYTE ARank NRank NRank NRank NRank NRank NRank NRank
+BYTE CRank NRank NRank NRank NRank NRank NRank NRank
 
 //   Growths
 //   HP  Str Skl Spd Def Res Luk
-BYTE 90  55  50  45  45  20  30
+BYTE 75  40  45  50  30  20  20
 
 // Unused
 BYTE 0 0
 
 // Leadership Stars
-BYTE 2
+BYTE 0
 
 // Skills (Personal, Promoted)
-BYTE 0 0
+BYTE HitAndRunID renzokuID
 
 // Character Ability
-WORD IsLord
+WORD 0
 
 // Supports
 POIN SupportData
 
 // Convo Group
-BYTE 1
+BYTE 2
 
 // Nonplayer Skill
 BYTE 0
 
 //   Magic
 //   Base Growth
-BYTE 06   25
+BYTE 03   20
 
 POP
 
@@ -67,16 +67,16 @@ ALIGN 4
 SupportData:
 
 // Support Partners
-BYTE Lizzy Ferris Audrey Brian Kara Elise 0
+BYTE 0x24 0x07 0x13 0x06 0x05 0x00 0x00
 
 // Support Values
-BYTE 8 8 9 8 7 12 0
+BYTE 6 7 6 6 8 0 0
 
 // Support Growths
-BYTE 10 3 4 4 4 5 0
+BYTE 4 3 3 3 4 0 0
 
 // Partners
-BYTE 6
+BYTE 5
 
 // Unused
 SHORT 0

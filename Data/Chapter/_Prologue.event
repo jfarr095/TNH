@@ -129,7 +129,7 @@ BYTE 0
 BYTE 0
 
 // Arrow Marker (X,Y) (0xFF for none)
-BYTE 10 1
+BYTE 1 9
 
 // Unused
 BYTE 0
