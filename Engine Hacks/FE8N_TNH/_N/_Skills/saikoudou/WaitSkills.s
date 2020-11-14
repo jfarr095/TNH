@@ -3,8 +3,8 @@
     push {r4, lr}
     mov r4, r0
     bl AlertStance
-    bl DefensiveStance
-    bl Catnap
+    bl Defensive
+    bl HealingFocus
     pop {r4, pc}
 
 
@@ -28,42 +28,43 @@ AlertStance:
     endAlertStance:
         pop {pc}
 
-DefensiveStance:
+Defensive:
         push {lr}
         mov r0, #48
         ldrb r0, [r4, r0]
         cmp r0, #0
-        bne endDefensiveStance
+        bne endDefensive
 
         mov	r0, r4
         mov r1, #0
-        bl HAS_DEFENSIVE_STANCE
+        bl HAS_DEFENSIVE
         cmp r0, #0
-        beq endDefensiveStance
+        beq endDefensive
 
         mov r1, #0x16
         mov r0, #48
         strb r1, [r4, r0]
 
-    endDefensiveStance:
+    endDefensive:
         pop {pc}
 
-Catnap:
+HealingFocus:
         push {lr}
 
         mov	r0, r4
         mov r1, #0
-        bl HAS_CATNAP
+        bl HAS_HEALING_FOCUS
         cmp r0, #0
-        beq endCatnap
+        beq endFocus
 
         ldrb r0, [r4, #19]
         ldrb r1, [r4, #18]
-        add r0, #5
+        asr r2, r1, #1
+        add r0, r2
         cmp r0, r1
-        blt jumpCatnap
+        blt jumpFocus
         mov r0, r1
-    jumpCatnap:
+    jumpFocus:
         strb r0, [r4, #19]
 
         mov r0, #0x89
@@ -72,17 +73,17 @@ Catnap:
             mov lr, r2
             .short 0xF800
 
-    endCatnap:
+    endFocus:
         pop {pc}
 
 
 HAS_ALERT_STANCE:
     ldr r2, addr+0
     mov pc, r2
-HAS_DEFENSIVE_STANCE:
+HAS_DEFENSIVE:
     ldr r2, addr+4
     mov pc, r2
-HAS_CATNAP:
+HAS_HEALING_FOCUS:
     ldr r2, addr+8
     mov pc, r2
 

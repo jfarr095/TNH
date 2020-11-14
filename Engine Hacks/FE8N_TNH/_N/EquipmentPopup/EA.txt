@@ -1,5 +1,5 @@
 #define UNIT_WINDOW_CACHE (0x0203AF10)
-
+#include TSA_burst.txt
 PUSH
 
 ORG	0x8eae8
@@ -26,14 +26,19 @@ BL(pop_warp)
 //BL(pop_warp)
 
 ORG 0x08e79c
-jumpToHack(atas_view)
+jumpToHack(burst_view)
 ORG 0x08e7a4
    BYTE $00 $4A $97 $46
    POIN arrow_double
 ORG 0x08e7ac
    BYTE $00 $4A $97 $46
    POIN double_double
+ORG 0x08e884
+jumpToHack(burst_hundred)
 
+
+
+///////////////////
 ORG	0x8E660
 #incbin "8E660.gba"
 pop_warp:
@@ -44,6 +49,8 @@ ORG	0x8f3a8
 POIN menu_gazou
 
 
+ORG	0xA931D0	//TSA
+#incbin A931D0.bin
 
 
 ORG	0xA92514
@@ -51,6 +58,9 @@ ORG	0xA92514
 
 ORG 0x08e9d0
 short 0x46c0 0x46c0//hpバー削除
+
+ORG 0xA7393C
+POIN BURST_DOWN_1 BURST_DOWN_2 BURST_DOWN_3 BURST_DOWN_NONE BURST_DOWN_NONE BURST_DOWN_NONE
 
 POP
 power_view:
@@ -61,8 +71,14 @@ have_two:
 #incbin "have_two.gba"
 ALIGN 4
 
-atas_view:
-#incbin atas_view.dmp
+burst_view:
+#incbin burst_view.dmp
+WORD UNIT_WINDOW_CACHE
+ALIGN 4
+
+burst_hundred:
+#incbin burst_hundred.dmp
+WORD UNIT_WINDOW_CACHE
 ALIGN 4
 
 menu_gazou:

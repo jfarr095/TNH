@@ -1,8 +1,9 @@
 .thumb
 
 ATK                     = (0x0203a4e8)
-ATTACK_FLG_OFFSET       = (69)             @書き込み先(AI2カウンタ)
-FIRST_ATTACKED_FLAG     = (0b00010000)
+RAGING_STORM_FLAG     = (2)
+COMBAT_HIT            = (1)
+FIRST_ATTACKED_FLAG   = (0)
 
 main:
         push {r4, r5, r6, lr}
@@ -25,11 +26,11 @@ main:
     return:
         pop {r4, r5, r6, pc}
 
-ALINA_ADDR = (0x0203a4d0)
+ARENA_ADDR = (0x0203a4d0)
 
 JudgeAddition:
         push {lr}
-        ldr r0, =ALINA_ADDR
+        ldr r0, =ARENA_ADDR
         ldrh r0, [r0]
         mov r1, #0x20
         and r0, r1
@@ -83,12 +84,11 @@ SwitchLion:
 
 SwiftStrikes:
         push {lr}
-        mov r0, r4
-        add r0, #ATTACK_FLG_OFFSET
-        ldrb r0, [r0]
-        mov r1, #FIRST_ATTACKED_FLAG
-        and r0, r1
-        bne falseSwift      @初撃済フラグオンならジャンプ
+        mov r0, #FIRST_ATTACKED_FLAG
+        mov r1, #0
+        bl IS_TEMP_SKILL_FLAG
+        cmp r0, #1
+        beq falseSwift      @初撃済フラグオンならジャンプ
         mov r0, r4
         mov r1, r5
         bl HAS_SWIFT_STRIKES
@@ -144,6 +144,9 @@ HAS_BLITZKRIEG:
     mov pc, r2
 HAS_ADEPT:
     ldr r2, addr+12
+    mov pc, r2
+IS_TEMP_SKILL_FLAG:
+    ldr r2, addr+16
     mov pc, r2
 
 .align

@@ -23,6 +23,7 @@ POIN set_skillanime_attack
 POIN hasNihil
 POIN fodes_func
 POIN HasRupturedSky
+POIN HasAtrocity
 
 ALIGN 4
 
@@ -144,5 +145,8 @@ hasJihad:
 HasRupturedSky:
     HAS_OCCULT
     WORD RupturedSkyID
+HasAtrocity:
+    HAS_OCCULT
+    WORD AtrocityID
 
 

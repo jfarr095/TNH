@@ -8,7 +8,7 @@
 #define	SKILL_BOOK_06	WrathID	//0x6怒り
 #define	SKILL_BOOK_07	ResolveID	//0x7勇将
 #define	SKILL_BOOK_08	VantageID	//0x8待ち伏せ
-#define	SKILL_BOOK_09	SwiftStrikesID	//0x9連撃
+#define	SKILL_BOOK_09	renzokuID  //0x38 連続
 #define	SKILL_BOOK_10	ParagonID	//0xaエリート
 #define	SKILL_BOOK_11	RemoveID	//0xb再動(自軍のみ)
 #define	SKILL_BOOK_12	PassID	//0xcすり抜け
@@ -26,9 +26,9 @@
 #define	SKILL_BOOK_24	BoldFighterID	//0x18差し違え
 #define	SKILL_BOOK_25	VengefulFighterID	//0x19切り返し
 #define	SKILL_BOOK_26	ImpregnableWallID	//0x1a鉄壁の構え
-#define	SKILL_BOOK_27	GrounderID	//0x1Bつばめ返し
-#define	SKILL_BOOK_28	HelmSplitterID	//0x1C兜割り
-#define	SKILL_BOOK_29	KnightkneelerID	//0x1D葬騎の一撃
+#define	SKILL_BOOK_27	WardingBlowID  //0xA5 明鏡の一撃
+#define	SKILL_BOOK_28	KarisumaID  //0xD1カリスマ(弱)
+#define	SKILL_BOOK_29	WaryFighterID  //0x81 守備隊形
 #define	SKILL_BOOK_30	MonsterBlastID	//0x1E魔物撃ち
 #define	SKILL_BOOK_31	DistantDefID	//0x1f遠距離防御
 #define	SKILL_BOOK_32	DeflectID	//0x20連撃防御
@@ -61,6 +61,6 @@
 
 #define	SKILL_BOOK_59	LunaID       //0x41月光
 #define	SKILL_BOOK_60	SolID        //0x42太陽
-#define	SKILL_BOOK_61	LungeID	// 0x9F 切り込み
-#define	SKILL_BOOK_62	HitAndRunID	//0xA0 一撃離脱
-#define	SKILL_BOOK_63	KnockBackID	//0xA1 叩き込み
+#define	SKILL_BOOK_61	QuickChangeID  //0x71 持ち替え
+#define	SKILL_BOOK_62	CancelAffinityID  //0x70相性相殺
+#define	SKILL_BOOK_63	CancelRadianceID         //0xB1 キャンセル(蒼炎)

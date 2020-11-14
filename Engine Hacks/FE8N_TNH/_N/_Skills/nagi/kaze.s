@@ -1,7 +1,8 @@
 .thumb
 @0802a834
-STR_ADR = (67)	@書き込み先(AI1カウンタ)
     push {r0}
+    mov r0, r5
+    bl SET_ENEMY_COMBAT
     bl DistantCounter
     pop {r1}
     cmp r0, #1
@@ -34,8 +35,7 @@ JudgeCancel:
         and r0, r1
         bne falseCancel @闘技場チェック
 
-
-        bl WindSweep
+        bl CombatArts
         cmp r0, #1
         beq trueCancel
 
@@ -83,26 +83,37 @@ DistantCounter:
         mov r0, #0
         pop {pc}
 
-WindSweep:
+CombatArts:
         push {lr}
         ldr r0, =0x03004df0
         ldr r0, [r0]
         ldrb r0, [r0, #11]
         ldrb r1, [r5, #11]
         cmp r0, r1
-        beq falseWindSweep      @r5は攻撃者
-    
+        beq falseCombatArts     @r5は攻撃者
+
         ldr r0, =0x0203a4e8
         mov r1, r5
-        bl hasWindSweep
-        cmp r0, #0
-        beq falseWindSweep      @スキル無し
+        bl HAS_WIND_SWEEP
+        cmp r0, #1
+        beq trueCombatArts
 
-        mov r0, #1
-        b endWindSweep
-    falseWindSweep:
+        ldr r0, =0x0203a4e8
+        mov r1, r5
+        bl HAS_DEAD_EYE
+        cmp r0, #1
+        beq trueCombatArts
+
+        ldr r0, =0x0203a4e8
+        mov r1, r5
+        bl HAS_FALLEN_STAR
+        cmp r0, #1
+        beq trueCombatArts
+    falseCombatArts:
         mov r0, #0
-    endWindSweep:
+        .short 0xE000
+    trueCombatArts:
+        mov r0, #1
         pop {pc}
 
 
@@ -116,7 +127,7 @@ GET_WEAPON_EFFECT:
 ldr r1, =0x080174cc
 mov pc, r1
 
-hasWindSweep:
+HAS_WIND_SWEEP:
 ldr r2, addr
 mov pc, r2
 
@@ -131,6 +142,18 @@ mov pc, r2
 GET_DISTANT_COUNTER_INVALID_WEAPON_TYPE_R1:
 ldr r1, addr+16
 bx lr
+
+HAS_DEAD_EYE:
+ldr r2, addr+20
+mov pc, r2
+
+SET_ENEMY_COMBAT:
+ldr r1, addr+24
+mov pc, r1
+
+HAS_FALLEN_STAR:
+ldr r2, addr+28
+mov pc, r2
 
 .align
 .ltorg

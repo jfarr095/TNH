@@ -4,6 +4,23 @@
 @r1 = skill_id
 @
     push {lr}
+
+@ここから新ルーチン
+	push	{r1}
+	mov	r1, #0xB
+	ldrb	r0, [r0, r1]	@部隊表
+	pop	{r1}
+	cmp	r0, #0x81	@敵
+	bge	teki		@敵なら分岐
+	ldr	r2, =0x0203AE42
+	strb	r1, [r2, #0]	@味方と同盟
+	b	endskill
+teki:
+	ldr	r2, =0x0203AE44
+	strb	r1, [r2, #0]	@敵
+endskill:
+@ここまで
+
     mov r0, #0x0 @攻撃スキル
         ldr r2, record_skillanime_id
         mov lr, r2

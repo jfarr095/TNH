@@ -5,7 +5,7 @@
     bl AvoidUp
     
 @闘技場チェック
-	bl GetAlinaAdr
+	bl GetArenaAddr
     ldrh r0, [r0]
     mov r1, #0x20
     and r0, r1
@@ -114,9 +114,8 @@ OtherSideSkill:
         cmp r0, r1
         bne DefSkill
         bl Kishin
-        bl Kongou
         bl Hien
-        bl Meikyou
+        bl Bracing
         bl Charge
         pop {pc}
     DefSkill:
@@ -125,9 +124,8 @@ OtherSideSkill:
         bl ShieldSession
         bl ImpregnableWall
         bl KishinR
-        bl KongouR
         bl HienR
-        bl MeikyouR
+        bl BracingR
         pop {pc}
 
 CriticalUp:
@@ -607,15 +605,10 @@ Heartseeker_impl:
         strh r0, [r4, r1] @自分
         pop {pc}
 
-STR_ADDR = (67)	@書き込み先(AI1カウンタ)
 
 WarSkill:
         push {lr}
 
-        ldrb r0, [r4, #11]
-        mov r2, #0xC0
-        and r2, r0
-        bne endWar @自軍以外は終了
 
         bl GetAttackerAddr
         ldr r2, [r0]
@@ -624,8 +617,8 @@ WarSkill:
         cmp r0, r2
         bne endWar
 
-        mov r0, #0x43
-        ldrb r0, [r4, r0]
+        mov r0, r4
+        bl GET_COMBAT_ART
         bl GetWarList
         cmp r0, #0
         beq endWar
@@ -741,7 +734,7 @@ Fort:
         mov r1, r4
         add r1, #90
         ldrh r0, [r1]
-        sub r0, #1
+        sub r0, #2  @minus 2
         bge jumpFort
         mov r0, #0
     jumpFort:
@@ -750,7 +743,7 @@ Fort:
         mov r1, r4
         add r1, #92
         ldrh r0, [r1]
-        add r0, #3
+        add r0, #4  @plus 4
         strh r0, [r1] @自分
         
         mov r0, #1
@@ -1072,7 +1065,7 @@ gotTubame:
 	bl HasTubame
 	cmp r0, #0
 	beq falseTubame
-	ldr r1, TUBAME_TOKKOU
+	bl TUBAME_TOKKOU
 	bl effect_test
 	cmp r0, #0
 	beq falseTubame
@@ -1232,9 +1225,10 @@ Charge:
         
         mov r0, r4
         bl GetWalked
-        cmp r0, #8
+        lsl r0, r0, #1
+        cmp r0, #10
         ble jumpCharge
-        mov r0, #8
+        mov r0, #10
     jumpCharge:
         mov r1, #90
         ldrh r2, [r4, r1]
@@ -1276,15 +1270,34 @@ KishinR:
         strh r0, [r4, r1] @自分
         b endKishin
 
-
-
-Kongou:
+Bracing:
         push {lr}
         mov r0, r5
         bl IsMagic
         cmp r0, #1
-        beq endKongou
+        beq jumpBracing
+        bl Kongou
+        b endBracing
+    jumpBracing:
+        bl Meikyou
+    endBracing:
+        pop {pc}
 
+BracingR:
+        push {lr}
+        mov r0, r5
+        bl IsMagic
+        cmp r0, #1
+        beq jumpBracingR
+        bl KongouR
+        b endBracingR
+    jumpBracingR:
+        bl MeikyouR
+    endBracingR:
+        pop {pc}
+
+Kongou:
+        push {lr}
         mov r0, r4
         mov r1, #0
         bl HasKongou
@@ -1299,11 +1312,6 @@ Kongou:
         pop {pc}
 KongouR:
         push {lr}
-        mov r0, r5
-        bl IsMagic
-        cmp r0, #1
-        beq endKongou
-
         mov r0, r4
         mov r1, #0
         bl HasKongouR
@@ -1318,11 +1326,6 @@ KongouR:
 
 Meikyou:
         push {lr}
-        mov r0, r5
-        bl IsMagic
-        cmp r0, #0
-        beq endMeikyou
-
         mov r0, r4
         mov r1, #0
         bl HasMeikyou
@@ -1337,11 +1340,6 @@ Meikyou:
         pop {pc}
 MeikyouR:
         push {lr}
-        mov r0, r5
-        bl IsMagic
-        cmp r0, #0
-        beq endMeikyou
-
         mov r0, r4
         mov r1, #0
         bl HasMeikyouR
@@ -1456,6 +1454,53 @@ breaker_impl:
 .align
 Range_ADDR:
 .long 0x0203a4d2
+
+
+SHISHI_ADDR = (addr+4)
+SAVIOR_ADDR = (addr+44)
+BLADE_SESSION_ADDR = (addr+48)
+SHIELD_SESSION_ADDR = (addr+52)
+HAS_AVOIDUP_ADDR = (addr+56)
+HAS_CRITICALUP_ADDR = (addr+60)
+HAS_CHARGE:
+    ldr r2, addr+68
+    mov pc, r2
+@ARMOR_E_ADDR = (addr+72)
+@HORSE_E_ADDR = (addr+76)
+HasMeikyou:
+    ldr r3, (addr+80)
+    mov pc, r3
+HIEN_ADDR = (addr+84)
+ACE_ADDR = (addr+88)
+KONSHIN_ADDR = (addr+92)
+SOLO_ADDR = (addr+96)
+SHISEN_ADDR = (addr+100)
+FORT_ADDR = (addr+104)
+TRAMPLE_ADDR = (addr+108)
+HEARTSEEKER_ADDR = (addr+112)
+DAUNT_ADDR = (addr+116)
+HAS_BOND_ADDR = (addr+120)
+HasMeikyouR:
+    ldr r3, (addr+124)
+    mov pc, r3
+HAS_KISHIN_R = (addr+128)
+HAS_KONGOU_R = (addr+132)
+HAS_HIEN_R = (addr+136)
+COMBAT_TBL = (addr+140)
+COMBAT_TBL_SIZE = (addr+144)
+GET_COMBAT_ART:
+    ldr r2, (addr+148)
+    mov pc, r2
+
+EXTRA_OFFSET = (addr+152)
+DOMINATION_ADDR = (EXTRA_OFFSET+0)
+TUBAME_ADDR = (EXTRA_OFFSET+4)
+OUZYA_ADDR = (EXTRA_OFFSET+8)
+NULLIFY_ADDR = (EXTRA_OFFSET+12)
+TUBAME_TOKKOU:
+ldr r1, (EXTRA_OFFSET+16)
+bx lr
+OUZYA_TOKKOU = (EXTRA_OFFSET+20)
 
 GetWarList:
     ldr r1, COMBAT_TBL_SIZE
@@ -1573,7 +1618,7 @@ GetAttackerAddr:
 GetWeaponSp:
 	ldr r1, =0x080172f0
 	mov pc, r1
-GetAlinaAdr:
+GetArenaAddr:
 	ldr r0, =0x0203a4d0
 	bx lr
 GetDistance:
@@ -1582,48 +1627,6 @@ GetDistance:
 GetExistFlagR1:
 	ldr r1, =0x1002C	@居ないフラグ+救出されている
 	bx lr
-
-HAS_CHARGE:
-    ldr r2, addr+68
-    mov pc, r2
-
-HasMeikyou:
-    ldr r3, (addr+80)
-    mov pc, r3
-
-HasMeikyouR:
-    ldr r3, (addr+124)
-    mov pc, r3
-
-SHISHI_ADDR = (addr+4)
-SAVIOR_ADDR = (addr+44)
-BLADE_SESSION_ADDR = (addr+48)
-SHIELD_SESSION_ADDR = (addr+52)
-HAS_AVOIDUP_ADDR = (addr+56)
-HAS_CRITICALUP_ADDR = (addr+60)
-@ARMOR_E_ADDR = (addr+72)
-@HORSE_E_ADDR = (addr+76)
-HIEN_ADDR = (addr+84)
-ACE_ADDR = (addr+88)
-KONSHIN_ADDR = (addr+92)
-SOLO_ADDR = (addr+96)
-SHISEN_ADDR = (addr+100)
-FORT_ADDR = (addr+104)
-TRAMPLE_ADDR = (addr+108)
-HEARTSEEKER_ADDR = (addr+112)
-DAUNT_ADDR = (addr+116)
-HAS_BOND_ADDR = (addr+120)
-HAS_KISHIN_R = (addr+128)
-HAS_KONGOU_R = (addr+132)
-HAS_HIEN_R = (addr+136)
-COMBAT_TBL = (addr+140)
-COMBAT_TBL_SIZE = (addr+144)
-DOMINATION_ADDR = (addr+148)
-TUBAME_ADDR = (addr+152)
-OUZYA_ADDR = (addr+156)
-NULLIFY_ADDR = (addr+160)
-TUBAME_TOKKOU = (addr+164)
-OUZYA_TOKKOU = (addr+168)
 .align
 .ltorg
 addr:

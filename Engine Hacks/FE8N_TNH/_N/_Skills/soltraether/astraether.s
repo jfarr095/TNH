@@ -1,6 +1,4 @@
 
-SWORD = (0)
-
 TENKU_ADR = (adr+0)
 YOUKO_ADR = (adr+4)
 ASTRA_ADR = (adr+8)
@@ -10,6 +8,7 @@ JIHAD_ADR = (adr+20)
 SET_SKILLANIME_ATK_FUNC = (adr+24)
 HAS_NIHIL_FUNC = (adr+28)
 HAS_RAPTURE =  (adr+36)
+HAS_ATROCITY =  (adr+40)
 
 .thumb
 @.org	0802b484
@@ -43,7 +42,11 @@ start:
 	bl astra_impl @流星
 	cmp r0, #1
 	beq return
-	
+
+	bl Atrocity  @無惨
+	cmp r0, #1
+	beq return	
+
 	bl RupturedSky  @破天
 	cmp r0, #1
 	beq return
@@ -70,12 +73,11 @@ nonmax:
     ldr r0, =0x0802b48e
     mov pc, r0
 
-
 RupturedSky:
     push {lr}
 @ユニットチェック
     mov r0, r7
-        ldr r1, HAS_RAPTURE        @撃破
+        ldr r1, HAS_RAPTURE        @破天
         mov lr, r1
         .short 0xF800
     cmp r0, #0
@@ -102,7 +104,7 @@ RupturedSky:
     strh r0, [r5, #4]
     
     mov r0, r7
-    ldr r1, HAS_RAPTURE        @撃破
+    ldr r1, HAS_RAPTURE        @破天
     ldr r1, [r1, #12]
         ldr r2, SET_SKILLANIME_ATK_FUNC
         mov lr, r2
@@ -313,7 +315,7 @@ ouiAstra:
 	bne	falseAstra	@近距離じゃなければ終了
 	mov r0, #0x50
 	ldrb r0, [r7, r0]
-	cmp r0, #SWORD
+	cmp r0, #0	@SWORD
 	bne falseAstra	@剣以外では発動しない
 
 	ldrh	r0, [r5, #12]	@必殺
@@ -445,7 +447,7 @@ jump:
 
 
 YOUKOU:
-    ldrb r0, [r7, #21]	@技
+    ldrb r0, [r7, #8]	@レベル
     mov r1, #0
     bl random
     cmp r0, #0
@@ -515,6 +517,61 @@ ryuend:
 	bne	ryuloop
 	pop	{r6, r7, pc}
 
+@ここから
+Atrocity:
+    push {lr}
+    mov r0, r7
+    ldr r1, HAS_ATROCITY        @無惨
+    mov lr, r1
+    .short 0xF800
+    cmp r0, #0
+    beq falseAtrocity
+@必殺と重複しない
+    ldr r0, [r6, #0]
+    ldr r0, [r0, #0]
+    lsl r0, r0, #31
+    bmi falseAtrocity
+@奥義目印
+    ldrb r0, [r7, #21]	@技
+    mov r1, #0
+    bl random
+    cmp r0, #0
+    beq falseAtrocity
+
+	mov	r0, r7
+	add	r0, r0, #72
+	ldrb	r0, [r0]	@武器
+	lsl	r1, r0, #3
+	add	r1, r1, r0
+	lsl	r1, r1, #2
+	ldr	r0, =0x080161B8
+	ldr	r0, [r0, #0]	@アイテム戦闘アドレス
+	add	r0, r0, r1
+	ldrb	r0, [r0, #0x15]
+	lsl	r0, r0, #1	@武器威力2倍を攻撃に足す
+    mov r1, #4
+    ldsh r1, [r5, r1] @ ダメージ
+    add r0, r0, r1
+    strh r0, [r5, #4]
+
+	mov	r1, r8
+	add	r1, #111
+	mov	r0, #0x1B		@@状態異常(2スリプ,3サイレス,4バサク,Bストン)
+	strb	r0, [r1, #0]
+	mov	r0, #1
+
+    mov r0, r7
+    ldr r1, HAS_ATROCITY        @無惨
+    ldr r1, [r1, #12]
+        ldr r2, SET_SKILLANIME_ATK_FUNC
+        mov lr, r2
+        .short 0xF800
+    b effect_crt	@必殺モーション
+    mov r0, #1
+    .short 0xE000
+falseAtrocity:
+    mov r0, #0
+    pop {pc}
 
 effect_crt: @必殺
     ldr r3, [r6]

@@ -1,0 +1,58 @@
+2020/10/16
+ファイルの位置　_Skills　→　Kantsuu　→　Third
+
+
+・貫通の発動率を技％に
+142行目	＊行数はファイルの更新により変わることがあります
+	ldrb r0, [r7 ,#8]	→	ldrb r0, [r7 ,#21]
+
+発動率は自由に変更可能
+#8	レベル
+#18	最大ＨＰ
+#19	現在ＨＰ
+#20	力
+#21	技
+#22	速さ
+#23	守備
+#24	魔防
+#25	幸運
+#26	魔力？
+
+
+・叫喚、衝撃バグ修正
+（敵が叫喚、衝撃を発動すると敵の攻撃ではなく味方の攻撃になってしまう）
+
+395行目
+～～ここから～～
+Effect:	@状態異常特殊エフェクト
+@@	ldr	r3, =0x0203A604
+	ldr	r3, [r6]
+	ldr	r2, [r3]
+	lsl	r1, r2, #13
+	lsr	r1, r1, #13
+	mov	r0, #64
+	orr	r0, r1
+	str	r0, [r3, #0]
+noEffect:
+	mov	r3, r8
+	mov	r0, #48
+	ldrb	r0, [r3, r0]
+	mov	r1, #15
+	and	r1, r0
+	cmp	r1, #11
+	beq	ouiStone
+	cmp	r1, #13
+	bne	endWar
+ouiStone:
+	ldr	r0, [r3, #12]
+	mov	r1, #3
+	neg	r1, r1
+	and	r0, r1
+	str	r0, [r3, #12]
+～～ここまで～～
+を全て消す
+
+296行目（MagicBindの最後）
+313行目（trueStanの最後）
+361行目（trueStoneの最後）
+	b	Effect	→	b	endWar

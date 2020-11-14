@@ -1,7 +1,10 @@
 RETURN_ADR = (0x0802b810)
 RETURN2_ADR = (0x0802b812)
 
-
+DEFEAT_FLAG           = (3)
+RAGING_STORM_FLAG     = (2)
+COMBAT_HIT            = (1)
+FIRST_ATTACKED_FLAG   = (0)
 
 @ORG 0x02b808
 .thumb
@@ -21,7 +24,7 @@ RETURN2_ADR = (0x0802b812)
 	beq RETURN	@壁
 	
 	bl defeat_flag
-	bl Alina_back
+	bl Arena_back
 	cmp r0, #1
 	beq UNDEAD
 	
@@ -42,33 +45,31 @@ UNDEAD:
 	ldr r2, =RETURN2_ADR
 	mov pc, r2
 
-Alina_back:
+Arena_back:
 @闘技場は死なない
 	ldr	r0, =0x0203a4d0
 	ldrh r0, [r0]
 	mov r1, #0x20
 	and r0, r1
-	beq falseAlina	@闘技場以外は終了
+	beq falseArena	@闘技場以外は終了
 	
 	ldrb r0, [r6, #11]	@部隊表ID
 	lsl r0, r0, #24
-	bmi falseAlina	@敵は無視
+	bmi falseArena	@敵は無視
 	
 	mov r0, #1
 	strb r0, [r6, #19]	@現在HP
-	b endAlina
-falseAlina:
+	b endArena
+falseArena:
 	mov r0, #0
-endAlina:
+endArena:
 	bx lr
-
-DEFEAT   = (0b10000000) @撃破フラグ
-@DEFEATED = (0b01000000) @迅雷済みフラグ
 
 
 defeat_flag:
 @撃破していたらフラグをオン
 @
+        push {lr}
 		ldr r3, =0x03004df0
 		ldr r3, [r3]
 		ldrb r0, [r3, #11]
@@ -76,20 +77,17 @@ defeat_flag:
 		cmp r0, r1
 		beq endJinrai @やられている？
 		
-		lsl r0, r0, #24
-		lsr r0, r0, #30
-		bne endJinrai	@攻撃者が敵である
-		
-		mov r0, r3
-		add r0, #69
-		ldrb	r1, [r0]
-	
-		mov r2, #DEFEAT
-		orr r2, r1
-	
-		strb	r2, [r0]
+		mov r0, #DEFEAT_FLAG
+		mov r1, r6
+		bl TURN_ON_TEMP_SKILL_FLAG
 	
 	endJinrai:
-		bx lr
-	
-	
+		pop {pc}
+
+TURN_ON_TEMP_SKILL_FLAG:
+    ldr r2, addr
+    mov pc, r2
+
+.align
+.ltorg
+addr:

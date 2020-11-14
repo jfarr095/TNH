@@ -1,8 +1,8 @@
 .thumb
 
-WAR_ADR = (67)	@書き込み先(AI1カウンタ)
-
-HAS_DARTING_FUNC = (Adr+36)
+RAGING_STORM_FLAG     = (2)
+COMBAT_HIT            = (1)
+FIRST_ATTACKED_FLAG   = (0)
 
 @.org 0802af18
     mov r5, r0
@@ -62,7 +62,7 @@ GetFollowUpPoint:
         pop {r4, r5, r6, r7, pc}
 
 
-followup_skills_atk:
+followup_skills_atk:    @攻め側(r5)に影響あるスキルのみ抽出
         push {lr}
     @守備隊形
         mov r0, r4
@@ -71,7 +71,7 @@ followup_skills_atk:
         cmp r0, #0
         beq jumpWaryFighter
         sub r5, #1
-        sub r6, #1
+@        sub r6, #1
     jumpWaryFighter:
 
     @差し違え
@@ -91,12 +91,29 @@ followup_skills_atk:
         sub r5, #1
     jumpWar:
 
+    @ついげきリング
+        mov r0, r4
+        mov r1, r7
+        bl HAS_FOLLOW_UP_RING   @ついげきリング
+        cmp r0, #0
+        beq jumpRing_atk
+        add r5, #1
+    jumpRing_atk:
+
+    @キャンセル
+        mov r0, r7
+        mov r1, r4
+        bl Cancel
+        cmp r0, #0
+        beq jumpCancel_atk
+        sub r5, #1
+    jumpCancel_atk:
         mov r0, r5
         mov r1, r6
         pop {pc}
 
 
-followup_skills_def:
+followup_skills_def:    @受け側(r6)に影響あるスキルのみ抽出
         push {lr}
     @守備隊形
         mov r0, r4
@@ -104,7 +121,7 @@ followup_skills_def:
         bl waryFighter_judgeActivate    @守備隊形
         cmp r0, #0
         beq jumpWaryFighter_def
-        sub r5, #1
+@        sub r5, #1
         sub r6, #1
     jumpWaryFighter_def:
 
@@ -126,11 +143,29 @@ followup_skills_def:
         sub r6, #1
     jumpImpact:
 
+    @ついげきリング
+        mov r0, r7
+        mov r1, r4
+        bl HAS_FOLLOW_UP_RING   @ついげきリング
+        cmp r0, #0
+        beq jumpRing_def
+        add r6, #1
+    jumpRing_def:
+
+    @キャンセル
+        mov r0, r4
+        mov r1, r7
+        bl Cancel
+        cmp r0, #0
+        beq jumpCancel_def
+        sub r6, #1
+    jumpCancel_def:
         mov r0, r5
         mov r1, r6
         pop {pc}
 
 WarSkill:
+        push {lr}
         ldrb r1, [r0, #0xB]
         mov r2, #0xC0
         and r2, r1
@@ -142,15 +177,14 @@ WarSkill:
         cmp r1, r2
         bne falseWar
 
-        add r0, #WAR_ADR
-        ldrb r0, [r0]
+        bl GET_COMBAT_ART
         cmp r0, #0
         beq falseWar
         mov r0, #1
-        bx lr
+        .short 0xE000
     falseWar:
         mov r0, #0
-        bx lr
+        pop {pc}
 
 
 Impact:
@@ -159,7 +193,7 @@ Impact:
         mov r5, r1
 
         mov r0, r5
-            ldr r2, Adr+20 @見切り
+            ldr r2, Addr+20 @見切り
             mov lr, r2
             .short 0xF800
         cmp r0, #1
@@ -215,7 +249,7 @@ BrashAssault:   @差し違え
 
         mov r0, r4
         mov r1, r5
-            ldr r2, Adr+28 @攻撃隊形@見切り
+            ldr r2, Addr+28 @差し違え@見切り
             mov lr, r2
             .short 0xF800
         cmp r0, #0
@@ -250,7 +284,7 @@ QuickRiposte: @切り返し
 
         mov r0, r4
         mov r1, r5
-            ldr r2, Adr+32 @切り返し@見切り
+            ldr r2, Addr+32 @切り返し@見切り
             mov lr, r2
             .short 0xF800
         cmp r0, #0
@@ -262,6 +296,25 @@ QuickRiposte: @切り返し
         mov r0, #0
         pop {r4, r5, pc}
 
+
+Cancel:
+        push {r4, r5, lr}
+        mov r4, r0
+        mov r5, r1
+
+        mov r0, #COMBAT_HIT
+        mov r1, r4
+        bl IS_TEMP_SKILL_FLAG
+        cmp r0, #0
+        beq falseCancel
+
+        mov r0, r4
+        mov r1, r5
+        bl HAS_CANCEL
+        .short 0xE000
+    falseCancel:
+        mov r0, #0
+        pop {r4, r5, pc}
 
 
     breaker_judgeActivate:
@@ -287,7 +340,7 @@ QuickRiposte: @切り返し
                 mov r5, r1
                 
                 mov r0, r5
-                    ldr r1, Adr+20 @見切り
+                    ldr r1, Addr+20 @見切り
                     mov lr, r1
                     .short 0xF800
                 cmp r0, #0
@@ -313,31 +366,31 @@ QuickRiposte: @切り返し
                 b end
                 
             sword:
-                ldr r0, Adr
+                ldr r0, Addr
                 mov lr, r0
                 mov r0, r4
                 .short 0xF800
                 b merge
             lance:
-                ldr r0, Adr+4
+                ldr r0, Addr+4
                 mov lr, r0
                 mov r0, r4
                 .short 0xF800
                 b merge
             axe:
-                ldr r0, Adr+8
+                ldr r0, Addr+8
                 mov lr, r0
                 mov r0, r4
                 .short 0xF800
                 b merge
             bow:
-                ldr r0, Adr+12
+                ldr r0, Addr+12
                 mov lr, r0
                 mov r0, r4
                 .short 0xF800
                 b merge
             magic:
-                ldr r0, Adr+16
+                ldr r0, Addr+16
                 mov lr, r0
                 mov r0, r4
                 .short 0xF800
@@ -352,10 +405,23 @@ QuickRiposte: @切り返し
             pop {r4, r5, pc}
 
 .align
-HasWaryFighter:
-ldr r2, Adr+40
-mov pc, r2
+HAS_DARTING_FUNC = (Addr+36)
 
+HasWaryFighter:
+ ldr r2, Addr+40
+ mov pc, r2
+HAS_FOLLOW_UP_RING:
+ ldr r2, Addr+44
+ mov pc, r2
+GET_COMBAT_ART:
+ ldr r1, (Addr+48)
+ mov pc, r1
+HAS_CANCEL:
+ ldr r2, (Addr+52)
+ mov pc, r2
+IS_TEMP_SKILL_FLAG:
+ ldr r2, (Addr+56)
+ mov pc, r2
 .align
 .ltorg
-Adr:
+Addr:

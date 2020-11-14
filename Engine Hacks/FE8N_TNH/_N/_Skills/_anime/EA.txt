@@ -14,9 +14,16 @@ get_skillanime_data:
     #incbin    get_skillanime_data.dmp
     POIN skl_anime_table      //+0
 
+skill_font_data:
+    #include "skill_font.event"
+
+skillreset:
+    #incbin    skill_reset.dmp
+
 playskillanime_attack:
     #incbin    playskillanime_attack.dmp
     POIN get_skillanime_data
+    POIN skill_font_data
 
 playskillsound_attack:
     #incbin    playskillsound_attack.dmp
@@ -25,6 +32,7 @@ playskillsound_attack:
 playskillanime_defence:
     #incbin    playskillanime_defence.dmp
     POIN get_skillanime_data
+    POIN skill_font_data
 
 playskillsound_defence:
     #incbin    playskillsound_defence.dmp
@@ -39,6 +47,10 @@ set_skillanime_defence:
     
 PUSH
 
+//スキルアニメリセット
+ORG $562D8
+    jumpToHack(skillreset)
+    
 //攻撃スキルアニメ
 ORG $70946
     BYTE 0 0   //NOP
@@ -60,3 +72,60 @@ ORG $70BF0
 
 POP
 ALIGN 4
+
+gekiha:
+#incext png2dmp "gazougekiha.png" --lz77
+gekkou:
+#incext png2dmp "gazougekkou.png" --lz77
+gessyoku:
+#incext png2dmp "gazougessyoku.png" --lz77
+haten:
+#incext png2dmp "gazouhaten.png" --lz77
+hitteki:
+#incext png2dmp "gazouhitteki.png" --lz77
+hukusyuu:
+#incext png2dmp "gazouhukusyuu.png" --lz77
+inori:
+#incext png2dmp "gazouinori.png" --lz77
+kaen:
+#incext png2dmp "gazoukaen.png" --lz77
+kantuu:
+#incext png2dmp "gazoukantuu.png" --lz77
+kyanseru:
+#incext png2dmp "gazoukyanseru.png" --lz77
+kyoukan:
+#incext png2dmp "gazoukyoukan.png" --lz77
+meidou:
+#incext png2dmp "gazoumeidou.png" --lz77
+ootate:
+#incext png2dmp "gazouootate.png" --lz77
+renzoku:
+#incext png2dmp "gazourenzoku.png" --lz77
+ryuuga:
+#incext png2dmp "gazouryuuga.png" --lz77
+ryuusei:
+#incext png2dmp "gazouryuusei.png" --lz77
+seitate:
+#incext png2dmp "gazouseitate.png" --lz77
+syougeki:
+#incext png2dmp "gazousyougeki.png" --lz77
+taiyou:
+#incext png2dmp "gazoutaiyou.png" --lz77
+tenkuu:
+#incext png2dmp "gazoutenkuu.png" --lz77
+unmei:
+#incext png2dmp "gazouunmei.png" --lz77
+youkou:
+#incext png2dmp "gazouyoukou.png" --lz77
+zihado:
+#incext png2dmp "gazouzihado.png" --lz77
+zyenosaido:
+#incext png2dmp "gazouzyenosaido.png" --lz77
+ebureido:
+#incext png2dmp "gazouebureido.png" --lz77
+rakusei:
+#incext png2dmp "gazourakusei.png" --lz77
+huuma:
+#incext png2dmp "gazouhuuma.png" --lz77
+totugeki:
+#incext png2dmp "gazoutotugeki.png" --lz77

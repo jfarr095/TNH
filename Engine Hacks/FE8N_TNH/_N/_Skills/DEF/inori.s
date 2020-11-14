@@ -397,8 +397,20 @@ getPray:
 	sub	r0, #1
 	strh	r0, [r4, #4]
 	
+@ここから新ルーチン
+	mov r0, r8
+	mov r1, r7
+	bl HasPrayOld
+	cmp r0, #0
+	beq	tuuzyou
+        mov r0, r8
+        ldr r1, HAS_OLD_INORI_FUNC
+	b	oldinori
+@ここまで
+tuuzyou:
         mov r0, r8
         ldr r1, HAS_INORI_FUNC
+oldinori:
         ldr r1, [r1, #12]
             ldr r2, SET_SKILLANIME_DEF_FUNC
             mov lr, r2
@@ -565,6 +577,7 @@ HAS_HOLY_SHIELD_FUNC = (adr+4)
 DEF_DIVIDE_FUNC = (adr+8)
 HAS_INORI_FUNC = (adr+12)
 HAS_INVINCIBLE_FUNC = (adr+28)
+HAS_OLD_INORI_FUNC = (adr+40)
 HAS_RAKKISEBUN_FUNC = (adr+44)
 
 HasBigShield:
@@ -600,7 +613,7 @@ ldr r2, (adr+36)
 mov pc, r2
 
 HasPrayOld:
-ldr r2, (adr+40)
+ldr r2, HAS_OLD_INORI_FUNC
 mov pc, r2
 
 Get_Status:

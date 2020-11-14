@@ -1,4 +1,4 @@
-
+#include _config.txt
 //奥義の鼓動の状態異常指定は3ファイル。(別フォルダの確率関連にもある)
 //
 
@@ -40,6 +40,7 @@ POP
 
 defeatEnemy:
 #incbin defeatEnemy.dmp
+POIN TURN_ON_TEMP_SKILL_FLAG
 ALIGN 4
 
 PUSH
@@ -129,6 +130,11 @@ ALIGN 4
         POIN hasGaleCause
         POIN WAIT_SKILLS
         WORD RagingStormID
+        POIN HAS_CHANGE_FATE
+        POIN GET_COMBAT_ART
+        POIN IS_TEMP_SKILL_FLAG
+        POIN TURN_OFF_TEMP_SKILL_FLAG
+        POIN GET_RAGING_STORM_NERF_CONFIG
         
     AfterMove_Skill:
         #incbin "AfterMove.dmp"
@@ -137,8 +143,8 @@ ALIGN 4
     WAIT_SKILLS:
         #incbin WaitSkills.dmp
         POIN HAS_ALERT_STANCE
-        POIN HAS_DEFENSIVE_STANCE
-        POIN HAS_CATNAP
+        POIN HAS_DEFENSIVE
+        POIN HAS_HEALING_FOCUS
 
     hasRagingStorm:
         HAS_COMBAT
@@ -164,12 +170,15 @@ ALIGN 4
     HAS_ALERT_STANCE:
         HAS_SKILL
         WORD AlertStanceID
-    HAS_DEFENSIVE_STANCE:
+    HAS_DEFENSIVE:
         HAS_SKILL
-        WORD DefensiveStanceID
-    HAS_CATNAP:
+        WORD DefensiveID
+    HAS_HEALING_FOCUS:
         HAS_SKILL
-        WORD CatnapID
+        WORD HealingFocusID
+    HAS_CHANGE_FATE:
+        HAS_SKILL
+        WORD ToChangeFateID
 
 PUSH
 ORG 0x01a09c

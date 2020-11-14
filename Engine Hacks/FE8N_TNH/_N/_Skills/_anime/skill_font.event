@@ -1,0 +1,184 @@
+skill_font:
+POIN	0 //0
+POIN	ootate //Skill_ID 1 大盾
+POIN	inori //祈り
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0 //10
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	seitate //Skill_ID 17 聖盾
+POIN	0
+POIN	0
+POIN	0 //20
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0 //30
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0 //40
+POIN	0
+POIN	totugeki //突撃42
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0 //50
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	renzoku //連続
+POIN	0
+POIN	0
+POIN	0
+POIN	0 //60
+POIN	0
+POIN	0
+POIN	0
+POIN	ryuusei //流星
+POIN	gekkou //月光
+POIN	taiyou //太陽
+POIN	tenkuu //天空
+POIN	youkou //陽光
+POIN	0
+POIN	0 //70
+POIN	0
+POIN	meidou //鳴動
+POIN	hukusyuu //復讐
+POIN	0
+POIN	0
+POIN	hitteki //必的
+POIN	0 
+POIN	0 
+POIN	kaen //華炎
+POIN	ryuuga //竜牙80
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0 //90
+POIN	0
+POIN	gekiha //撃破
+POIN	0
+POIN	0
+POIN	gessyoku //月食
+POIN	zihado //ジハード
+POIN	0
+POIN	0
+POIN	0
+POIN	zyenosaido //Skill_ID 100 表ジェノサイド
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	zyenosaido //Skill_ID 117 防御ジェノサイド
+POIN	0
+POIN	huuma //封魔119
+POIN	0 //120
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	ebureido //エターナルブレイド126
+POIN	rakusei //落星127
+POIN	0
+POIN	0
+POIN	unmei //運命130
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0 //140
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0 //150
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0 //160
+POIN	0
+POIN	0
+POIN	0
+POIN	haten //破天
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0
+POIN	0 //170
+POIN	0
+POIN	0
+POIN	0
+POIN	kantuu //貫通
+POIN	kyoukan //叫喚
+POIN	syougeki //衝撃
+POIN	kyanseru //キャンセル
+POIN	0
+POIN	0
+WORD	0xFFFFFFFF //180
+
+ALIGN 4

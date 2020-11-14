@@ -46,9 +46,10 @@ POIN fodes_func
 POIN HAS_PIERCE
 POIN HAS_STUN_MASTERY
 POIN HAS_SCREAM_MASTERY
+POIN IS_TEMP_SKILL_FLAG
     
 hasFallenStar:
-  HAS_COMBAT
+  HAS_OCCULT
   WORD FallenStarID
 hasDragonFung:
     HAS_OCCULT
@@ -69,7 +70,7 @@ hasIgnis:
     HAS_OCCULT
     WORD IgnisID
 hasMagicBind:
-    HAS_COMBAT
+    HAS_OCCULT
     WORD MagicBindID
 
 HAS_PIERCE:
